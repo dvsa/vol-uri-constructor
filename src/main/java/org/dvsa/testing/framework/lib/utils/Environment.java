@@ -1,4 +1,4 @@
-package utils;
+package org.dvsa.testing.framework.lib.utils;
 
 public enum Environment {
     QUALITY_ASSURANCE,
