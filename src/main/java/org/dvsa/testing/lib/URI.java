@@ -1,5 +1,7 @@
-import org.dvsa.testing.framework.lib.utils.ApplicationType;
-import org.dvsa.testing.framework.lib.utils.Environment;
+package org.dvsa.testing.lib;
+
+import org.dvsa.testing.lib.utils.ApplicationType;
+import org.dvsa.testing.lib.utils.Environment;
 
 public class URI {
     private static String scheme = "https";
