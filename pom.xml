@@ -12,6 +12,23 @@
         <junit.version>4.12</junit.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>devappci-shd-pri-qarepo</id>
+            <url>s3://devappci-shd-pri-qarepo</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.springframework.build</groupId>
+                <artifactId>aws-maven</artifactId>
+                <version>5.0.0.RELEASE</version>
+            </extension>
+        </extensions>
+    </build>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
