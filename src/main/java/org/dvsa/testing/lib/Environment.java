@@ -35,7 +35,7 @@ public class Environment {
     }
 
     public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env){
-        String name = null;
+        String name;
         switch(env){
             case QUALITY_ASSURANCE:
                 name = "qa";

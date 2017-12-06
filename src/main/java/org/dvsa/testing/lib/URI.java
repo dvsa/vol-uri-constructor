@@ -7,7 +7,7 @@ public class URI {
     private static String scheme = "https";
 
     public static String build(ApplicationType appType, EnvironmentType env, String endPoint){
-        String domain = null;
+        String domain;
         if(appType == ApplicationType.EXTERNAL && env == EnvironmentType.PRODUCTION){
             domain = String.format("%s://www.vehicle-operator-licensing.service.gov.uk/%s", getScheme(), endPoint);
         } else {

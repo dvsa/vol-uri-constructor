@@ -1,5 +1,4 @@
 import org.dvsa.testing.lib.Environment;
-import org.dvsa.testing.lib.utils.ApplicationType;
 import org.dvsa.testing.lib.utils.EnvironmentType;
 import org.junit.Assert;
 import org.junit.Test;
