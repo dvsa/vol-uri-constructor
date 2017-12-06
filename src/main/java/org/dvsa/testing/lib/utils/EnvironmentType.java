@@ -1,6 +1,6 @@
 package org.dvsa.testing.lib.utils;
 
-public enum Environment {
+public enum EnvironmentType {
     QUALITY_ASSURANCE,
     DAILY_ASSURANCE,
     DEVELOP,
