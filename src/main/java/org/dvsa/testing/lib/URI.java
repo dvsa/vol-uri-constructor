@@ -1,5 +1,6 @@
 package org.dvsa.testing.lib;
 
+import com.sun.istack.internal.NotNull;
 import org.dvsa.testing.lib.utils.ApplicationType;
 import org.dvsa.testing.lib.utils.Environment;
 
@@ -52,6 +53,30 @@ public class URI {
                 new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s.", appType, env));
         }
         return envName;
+    }
+
+    private static Environment envEnum(@NotNull String env){
+        Environment envEnum = null;
+        switch(env){
+            case "qa":
+                envEnum = Environment.QUALITY_ASSURANCE;
+                break;
+            case "dev":
+                envEnum = Environment.DEVELOP;
+                break;
+            case "da":
+                envEnum = Environment.DAILY_ASSURANCE;
+                break;
+            case "reg":
+                envEnum = Environment.REGRESSION;
+                break;
+            case "prod":
+                envEnum = Environment.PRODUCTION;
+                break;
+            default:
+                throw new IllegalArgumentException(String.format("%s does not match up to any environment"));
+        }
+        return envEnum;
     }
 
     private static String getScheme() {
