@@ -12,7 +12,7 @@ public class URI {
             domain = String.format("%s://www.vehicle-operator-licensing.service.gov.uk/%s", getScheme(), endPoint);
         } else {
             String nonProdSection = (env == Environment.PRODUCTION ) ? "" : ".nonprod";
-            domain = String.format("%s://%s.olcs.%s%s.dvsa.aws/%s", getScheme(), getAppName(appType), getEnvName(appType, env), nonProdSection, endPoint);
+            domain = String.format("%s://%s.olcs.%s%s.dvsa.aws/%s", getScheme(), appName(appType), envName(appType, env), nonProdSection, endPoint);
         }
         return domain;
     }
@@ -22,11 +22,11 @@ public class URI {
         return URI.build(appType, env, endPoint);
     }
 
-    private static String getAppName(ApplicationType appType){
+    private static String appName(ApplicationType appType){
         return (appType == ApplicationType.INTERNAL) ? "iuap1" : "ssap1";
     }
 
-    private static String getEnvName(ApplicationType appType, Environment env){
+    private static String envName(ApplicationType appType, Environment env){
         String envName = null;
         switch(env){
             case QUALITY_ASSURANCE:
