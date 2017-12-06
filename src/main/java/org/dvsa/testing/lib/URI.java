@@ -46,11 +46,11 @@ public class URI {
                 if(appType.equals(ApplicationType.INTERNAL)){
                     envName = "prod";
                 } else {
-                    new IllegalArgumentException("The external(self serve) production app does not contain an environment name.");
+                    throw new IllegalArgumentException("The external(self serve) production app does not contain an environment name.");
                 }
                 break;
             default:
-                new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s.", appType, env));
+                throw new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s.", appType, env));
         }
         return envName;
     }
