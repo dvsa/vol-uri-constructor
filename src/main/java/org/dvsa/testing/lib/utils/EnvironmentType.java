@@ -5,5 +5,6 @@ public enum EnvironmentType {
     DAILY_ASSURANCE,
     DEVELOP,
     REGRESSION,
+    INTEGRATION,
     PRODUCTION,
 }

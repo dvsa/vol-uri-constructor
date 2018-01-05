@@ -6,10 +6,11 @@
 
     <groupId>org.dvsa.testing.lib</groupId>
     <artifactId>uri-constructor</artifactId>
-    <version>1.2</version>
+    <version>1.4</version>
 
     <properties>
         <junit.version>4.12</junit.version>
+        <active-support.version>0.3</active-support.version>
     </properties>
 
     <distributionManagement>
@@ -40,6 +41,12 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>org.dvsa.testing.lib</groupId>
+            <artifactId>active-support</artifactId>
+            <version>${active-support.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
