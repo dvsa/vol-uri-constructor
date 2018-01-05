@@ -6,7 +6,7 @@
 
     <groupId>org.dvsa.testing.lib</groupId>
     <artifactId>uri-constructor</artifactId>
-    <version>1.4</version>
+    <version>1.4.1</version>
 
     <properties>
         <junit.version>4.12</junit.version>
