@@ -13,6 +13,13 @@
         <active-support.version>0.3</active-support.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>devappci-shd-pri-qarepo</id>
+            <url>s3://devappci-shd-pri-qarepo</url>
+        </repository>
+    </repositories>
+
     <distributionManagement>
         <repository>
             <id>devappci-shd-pri-qarepo</id>
