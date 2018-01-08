@@ -10,7 +10,7 @@
 
     <properties>
         <junit.version>4.12</junit.version>
-        <active-support.version>0.3</active-support.version>
+        <active-support.version>0.8.2</active-support.version>
     </properties>
 
     <repositories>
