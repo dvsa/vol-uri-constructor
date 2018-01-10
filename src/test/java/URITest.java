@@ -97,4 +97,14 @@ public class URITest {
         Assert.assertEquals(expectedURL, actualURL);
     }
 
+    @Test
+    public void appendsPathToTheUrl(){
+        String URL = URI.build(ApplicationType.EXTERNAL, EnvironmentType.PRODUCTION);
+
+        String actualURL = URL + "auth/login/";
+        String expectedURL = URI.updatePath(URL + "register", "auth/login/");
+
+        Assert.assertEquals(expectedURL, actualURL);
+    }
+
 }

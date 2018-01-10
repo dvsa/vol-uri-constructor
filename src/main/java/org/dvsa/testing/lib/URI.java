@@ -27,17 +27,18 @@ public class URI {
     }
 
     public static String updatePath(@NotNull String URL, @NotNull String path){
+        String updatedURL = "";
         String regex = "(?:(?<=\\.aws\\/)|(?<=\\.uk\\/))[\\w\\/]+";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(URL);
 
         if(matcher.find()){
-            return URL.replaceAll(regex, path);
+            updatedURL = URL.replaceAll(regex, path);
         } else {
-            path = URL.endsWith("/") ? path : "/" + path;
+            updatedURL += URL.endsWith("/") ? path : "/" + path;
         }
 
-        return URL.replaceAll(regex, path);
+        return updatedURL.endsWith("/") ? updatedURL : updatedURL + "/";
     }
 
     private static String appName(ApplicationType appType){
