@@ -35,7 +35,7 @@ public class URI {
         if(matcher.find()){
             updatedURL = URL.replaceAll(regex, path);
         } else {
-            updatedURL += URL.endsWith("/") ? path : "/" + path;
+            updatedURL = URL + (URL.endsWith("/") ? path : "/" + path);
         }
 
         return updatedURL.endsWith("/") ? updatedURL : updatedURL + "/";
