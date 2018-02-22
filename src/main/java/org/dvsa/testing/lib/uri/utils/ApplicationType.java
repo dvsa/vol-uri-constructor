@@ -1,4 +1,4 @@
-package org.dvsa.testing.lib.utils;
+package org.dvsa.testing.lib.uri.utils;
 
 public enum ApplicationType {
     INTERNAL,

@@ -1,5 +1,6 @@
-package org.dvsa.testing.lib.utils;
+package org.dvsa.testing.lib.uri.utils;
 
+import org.dvsa.testing.lib.uri.Environment;
 import org.jetbrains.annotations.NotNull;
 
 public enum EnvironmentType {
