@@ -1,7 +1,7 @@
-package org.dvsa.testing.lib;
+package org.dvsa.testing.lib.uri;
 
-import org.dvsa.testing.lib.utils.ApplicationType;
-import org.dvsa.testing.lib.utils.EnvironmentType;
+import org.dvsa.testing.lib.uri.utils.ApplicationType;
+import org.dvsa.testing.lib.uri.utils.EnvironmentType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.regex.Matcher;
@@ -35,7 +35,7 @@ public class URI {
         if(matcher.find()){
             updatedURL = URL.replaceAll(regex, path);
         } else {
-            updatedURL += URL.endsWith("/") ? path : "/" + path;
+            updatedURL = URL + (URL.endsWith("/") ? path : "/" + path);
         }
 
         return updatedURL.endsWith("/") ? updatedURL : updatedURL + "/";

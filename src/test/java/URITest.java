@@ -1,9 +1,8 @@
-import org.dvsa.testing.lib.Environment;
-import org.dvsa.testing.lib.URI;
+import org.dvsa.testing.lib.uri.URI;
 import org.junit.Assert;
 import org.junit.Test;
-import org.dvsa.testing.lib.utils.ApplicationType;
-import org.dvsa.testing.lib.utils.EnvironmentType;
+import org.dvsa.testing.lib.uri.utils.ApplicationType;
+import org.dvsa.testing.lib.uri.utils.EnvironmentType;
 
 public class URITest {
 
