@@ -1,6 +1,6 @@
 # URL Constructor
 
-This library handles creating environment specific URIs. It is intended to be used for test automation for initial page load.
+This library handles creating environment specific URLs. It is intended to be used for test automation for initial page load.
 
 ## Code Example
 How to construct a URL for the external web-app on production environment
