@@ -1,15 +1,15 @@
-# URI Constructor
+# URL Constructor
 
 This library handles creating environment specific URIs. It is intended to be used for test automation for initial page load.
 
 ## Code Example
 How to construct a URL for the external web-app on production environment
 ```
-org.dvsa.testing.lib.uri.webapp.URI.build(ApplicationType.INTERNAL, Environment.PRODUCTION)
+org.dvsa.testing.lib.url.webapp.URL.build(ApplicationType.INTERNAL, Environment.PRODUCTION)
 ```
 Note that there are overloaded versions that accept a string as an argument for specifying which environment, meaning that the above example can be written as:
 ```
-org.dvsa.testing.lib.uri.webapp.URI.build(ApplicationType.INTERNAL, "prod")
+org.dvsa.testing.lib.url.webapp.URL.build(ApplicationType.INTERNAL, "prod")
 ```
 
 The above code snippet will return the string "https://www.vehicle-operator-licensing.service.gov.uk/"

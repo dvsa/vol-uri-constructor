@@ -1,4 +1,4 @@
-package org.dvsa.testing.lib.uri.exceptions;
+package org.dvsa.testing.lib.url.exceptions;
 
 public class UninitialisedURLException extends RuntimeException {
 

@@ -1,4 +1,4 @@
-package org.dvsa.testing.lib.uri.webapp.utils;
+package org.dvsa.testing.lib.url.webapp.utils;
 
 import activesupport.system.out.Output;
 import org.jetbrains.annotations.NotNull;

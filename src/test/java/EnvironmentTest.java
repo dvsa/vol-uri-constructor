@@ -1,4 +1,4 @@
-import org.dvsa.testing.lib.uri.webapp.utils.EnvironmentType;
+import org.dvsa.testing.lib.url.webapp.utils.EnvironmentType;
 import org.junit.Assert;
 import org.junit.Test;
 

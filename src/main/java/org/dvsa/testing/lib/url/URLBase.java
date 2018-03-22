@@ -1,6 +1,6 @@
-package org.dvsa.testing.lib.uri;
+package org.dvsa.testing.lib.url;
 
-import org.dvsa.testing.lib.uri.exceptions.UninitialisedURLException;
+import org.dvsa.testing.lib.url.exceptions.UninitialisedURLException;
 import org.jetbrains.annotations.NotNull;
 
 import java.net.MalformedURLException;
@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class URIBase {
+public class URLBase {
 
     private static URL URL;
 

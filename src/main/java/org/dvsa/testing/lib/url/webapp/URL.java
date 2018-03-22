@@ -1,20 +1,19 @@
-package org.dvsa.testing.lib.uri.webapp;
+package org.dvsa.testing.lib.url.webapp;
 
-import org.dvsa.testing.lib.uri.URIBase;
-import org.dvsa.testing.lib.uri.webapp.utils.ApplicationType;
-import org.dvsa.testing.lib.uri.webapp.utils.EnvironmentType;
+import org.dvsa.testing.lib.url.URLBase;
+import org.dvsa.testing.lib.url.webapp.utils.ApplicationType;
+import org.dvsa.testing.lib.url.webapp.utils.EnvironmentType;
 import org.jetbrains.annotations.NotNull;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
-public class URI extends URIBase {
+public class URL extends URLBase {
 
-    public static URL build(@NotNull ApplicationType appType, @NotNull String env, @NotNull String endPoint) throws MalformedURLException {
+    public static java.net.URL build(@NotNull ApplicationType appType, @NotNull String env, @NotNull String endPoint) throws MalformedURLException {
         return build(appType, EnvironmentType.getEnum(env), endPoint);
     }
 
-    public static URL build(@NotNull ApplicationType appType, @NotNull String env) throws MalformedURLException {
+    public static java.net.URL build(@NotNull ApplicationType appType, @NotNull String env) throws MalformedURLException {
         return build(appType, EnvironmentType.getEnum(env));
     }
 
@@ -32,9 +31,9 @@ public class URI extends URIBase {
         return getURL();
     }
 
-    public static URL build(ApplicationType appType, EnvironmentType env) throws MalformedURLException {
+    public static java.net.URL build(ApplicationType appType, EnvironmentType env) throws MalformedURLException {
         String endPoint = "";
-        return URI.build(appType, env, endPoint);
+        return org.dvsa.testing.lib.url.webapp.URL.build(appType, env, endPoint);
     }
 
     private static String appName(ApplicationType appType){
