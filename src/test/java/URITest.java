@@ -1,107 +1,110 @@
-import org.dvsa.testing.lib.uri.URI;
+import org.dvsa.testing.lib.uri.webapp.URI;
 import org.junit.Assert;
 import org.junit.Test;
-import org.dvsa.testing.lib.uri.utils.ApplicationType;
-import org.dvsa.testing.lib.uri.utils.EnvironmentType;
+import org.dvsa.testing.lib.uri.webapp.utils.ApplicationType;
+import org.dvsa.testing.lib.uri.webapp.utils.EnvironmentType;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class URITest {
 
     @Test
-    public void createInternalDailyAssuranceDomain(){
-        String actualDomain = "https://iuap1.olcs.da.nonprod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.DAILY_ASSURANCE);
+    public void createInternalDailyAssuranceDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://iuap1.olcs.da.nonprod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.DAILY_ASSURANCE);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createExternalDailyAssuranceDomain(){
-        String actualDomain = "https://ssap1.olcs.da.nonprod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.DAILY_ASSURANCE);
+    public void createExternalDailyAssuranceDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://ssap1.olcs.da.nonprod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.DAILY_ASSURANCE);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createExternalProductionDomain(){
-        String actualDomain = "https://www.vehicle-operator-licensing.service.gov.uk/";
-        String expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.PRODUCTION);
+    public void createExternalProductionDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://www.vehicle-operator-licensing.service.gov.uk/");
+        URL expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.PRODUCTION);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createInternalProductionDomain(){
-        String actualDomain = "https://iuap1.olcs.prod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.PRODUCTION);
+    public void createInternalProductionDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://iuap1.olcs.prod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.PRODUCTION);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createExternalQualityAssuranceDomain(){
-        String actualDomain = "https://ssap1.olcs.qa.nonprod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.QUALITY_ASSURANCE);
+    public void createExternalQualityAssuranceDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://ssap1.olcs.qa.nonprod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.QUALITY_ASSURANCE);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createInternalQualityAssuranceDomain(){
-        String actualDomain = "https://iuap1.olcs.qa.nonprod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.QUALITY_ASSURANCE);
+    public void createInternalQualityAssuranceDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://iuap1.olcs.qa.nonprod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.QUALITY_ASSURANCE);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createExternalDevelopDomain(){
-        String actualDomain = "https://ssap1.olcs.dev.nonprod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.DEVELOP);
+    public void createExternalDevelopDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://ssap1.olcs.dev.nonprod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.DEVELOP);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createInternalDevelopDomain(){
-        String actualDomain = "https://iuap1.olcs.dev.nonprod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.DEVELOP);
+    public void createInternalDevelopDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://iuap1.olcs.dev.nonprod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.DEVELOP);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createExternalRegressionDomain(){
-        String actualDomain = "https://ssap1.olcs.reg.nonprod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.REGRESSION);
+    public void createExternalRegressionDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://ssap1.olcs.reg.nonprod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.EXTERNAL, EnvironmentType.REGRESSION);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void createInternalRegressionDomain(){
-        String actualDomain = "https://iuap1.olcs.reg.nonprod.dvsa.aws/";
-        String expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.REGRESSION);
+    public void createInternalRegressionDomain() throws MalformedURLException {
+        URL actualDomain = new URL("https://iuap1.olcs.reg.nonprod.dvsa.aws/");
+        URL expectedDomain = URI.build(ApplicationType.INTERNAL, EnvironmentType.REGRESSION);
 
         Assert.assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
-    public void updatesTheURLPath(){
-        String URL = URI.build(ApplicationType.EXTERNAL, EnvironmentType.PRODUCTION);
+    public void updatesTheURLPath() throws MalformedURLException {
+        URI.build(ApplicationType.EXTERNAL, EnvironmentType.PRODUCTION, "register");
 
-        String actualURL = URL + "auth/login/";
-        String expectedURL = URI.updatePath(URL + "register", "auth/login/");
+        URL actualURL = new URL("https://www.vehicle-operator-licensing.service.gov.uk/auth/login/");
+        URL expectedURL = URI.updatePath("auth/login/");
 
         Assert.assertEquals(expectedURL, actualURL);
     }
 
     @Test
-    public void appendsPathToTheUrl(){
-        String URL = URI.build(ApplicationType.EXTERNAL, EnvironmentType.PRODUCTION);
+    public void appendsPathToTheUrl() throws MalformedURLException {
+        URL URL = URI.build(ApplicationType.EXTERNAL, EnvironmentType.PRODUCTION, "register");
 
-        String actualURL = URL + "auth/login/";
-        String expectedURL = URI.updatePath(URL + "register", "auth/login/");
+        URL actualURL = new URL("https://www.vehicle-operator-licensing.service.gov.uk/auth/login/");
+        URL expectedURL = URI.updatePath("auth/login/");
 
         Assert.assertEquals(expectedURL, actualURL);
     }

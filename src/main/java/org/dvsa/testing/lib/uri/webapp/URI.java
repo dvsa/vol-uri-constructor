@@ -1,51 +1,44 @@
-package org.dvsa.testing.lib.uri;
+package org.dvsa.testing.lib.uri.webapp;
 
-import org.dvsa.testing.lib.uri.utils.ApplicationType;
-import org.dvsa.testing.lib.uri.utils.EnvironmentType;
+import org.dvsa.testing.lib.uri.URIBase;
+import org.dvsa.testing.lib.uri.webapp.utils.ApplicationType;
+import org.dvsa.testing.lib.uri.webapp.utils.EnvironmentType;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-public class URI {
-    private static String scheme = "https";
+public class URI extends URIBase {
 
-    public static String build(ApplicationType appType, EnvironmentType env, String endPoint){
+    public static URL build(@NotNull ApplicationType appType, @NotNull String env, @NotNull String endPoint) throws MalformedURLException {
+        return build(appType, EnvironmentType.getEnum(env), endPoint);
+    }
+
+    public static URL build(@NotNull ApplicationType appType, @NotNull String env) throws MalformedURLException {
+        return build(appType, EnvironmentType.getEnum(env));
+    }
+
+    public static java.net.URL build(ApplicationType appType, EnvironmentType env, String endPoint) throws MalformedURLException {
         String domain;
         if(appType == ApplicationType.EXTERNAL && env == EnvironmentType.PRODUCTION){
-            domain = String.format("%s://www.vehicle-operator-licensing.service.gov.uk/%s", getScheme(), endPoint);
+            domain = String.format("https://www.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
         } else {
             String nonProdSection = (env == EnvironmentType.PRODUCTION ) ? "" : ".nonprod";
-            domain = String.format("%s://%s.olcs.%s%s.dvsa.aws/%s", getScheme(), appName(appType), Environment.name(appType, env), nonProdSection, endPoint);
+            domain = String.format("https://%s.olcs.%s%s.dvsa.aws/%s", appName(appType), EnvironmentType.name(appType, env), nonProdSection, endPoint);
         }
-        return domain;
+
+        setURL(domain);
+
+        return getURL();
     }
 
-    public static String build(ApplicationType appType, EnvironmentType env){
+    public static URL build(ApplicationType appType, EnvironmentType env) throws MalformedURLException {
         String endPoint = "";
         return URI.build(appType, env, endPoint);
-    }
-
-    public static String updatePath(@NotNull String URL, @NotNull String path){
-        String updatedURL = "";
-        String regex = "(?:(?<=\\.aws\\/)|(?<=\\.uk\\/))[\\w\\/]+";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(URL);
-
-        if(matcher.find()){
-            updatedURL = URL.replaceAll(regex, path);
-        } else {
-            updatedURL = URL + (URL.endsWith("/") ? path : "/" + path);
-        }
-
-        return updatedURL.endsWith("/") ? updatedURL : updatedURL + "/";
     }
 
     private static String appName(ApplicationType appType){
         return (appType == ApplicationType.INTERNAL) ? "iuap1" : "ssap1";
     }
 
-    private static String getScheme() {
-        return scheme;
-    }
 }

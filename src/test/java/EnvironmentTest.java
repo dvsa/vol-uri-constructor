@@ -1,5 +1,4 @@
-import org.dvsa.testing.lib.uri.Environment;
-import org.dvsa.testing.lib.uri.utils.EnvironmentType;
+import org.dvsa.testing.lib.uri.webapp.utils.EnvironmentType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,7 +7,7 @@ public class EnvironmentTest {
     @Test
     public void returnQAEnvironmentEnum(){
         EnvironmentType expectedEnvironment = EnvironmentType.QUALITY_ASSURANCE;
-        EnvironmentType actualEnvironment = Environment.enumType("qa");
+        EnvironmentType actualEnvironment = EnvironmentType.getEnum("qa");
 
         Assert.assertEquals(expectedEnvironment, actualEnvironment);
     }
@@ -16,7 +15,7 @@ public class EnvironmentTest {
     @Test
     public void returnDAEnvironmentEnum(){
         EnvironmentType expectedEnvironment = EnvironmentType.DAILY_ASSURANCE;
-        EnvironmentType actualEnvironment = Environment.enumType("da");
+        EnvironmentType actualEnvironment = EnvironmentType.getEnum("da");
 
         Assert.assertEquals(expectedEnvironment, actualEnvironment);
     }
@@ -24,7 +23,7 @@ public class EnvironmentTest {
     @Test
     public void returnDevelopEnvironmentEnum(){
         EnvironmentType expectedEnvironment = EnvironmentType.DEVELOP;
-        EnvironmentType actualEnvironment = Environment.enumType("dev");
+        EnvironmentType actualEnvironment = EnvironmentType.getEnum("dev");
 
         Assert.assertEquals(expectedEnvironment, actualEnvironment);
     }
@@ -32,7 +31,7 @@ public class EnvironmentTest {
     @Test
     public void returnRegressionEnvironmentEnum(){
         EnvironmentType expectedEnvironment = EnvironmentType.REGRESSION;
-        EnvironmentType actualEnvironment = Environment.enumType("reg");
+        EnvironmentType actualEnvironment = EnvironmentType.getEnum("reg");
 
         Assert.assertEquals(expectedEnvironment, actualEnvironment);
     }
@@ -40,7 +39,7 @@ public class EnvironmentTest {
     @Test
     public void returnProductionEnvironmentEnum(){
         EnvironmentType expectedEnvironment = EnvironmentType.PRODUCTION;
-        EnvironmentType actualEnvironment = Environment.enumType("prod");
+        EnvironmentType actualEnvironment = EnvironmentType.getEnum("prod");
 
         Assert.assertEquals(expectedEnvironment, actualEnvironment);
     }
@@ -48,7 +47,7 @@ public class EnvironmentTest {
     @Test
     public void returnsQAName(){
         String expectedName = "qa";
-        String actualName = Environment.name(EnvironmentType.QUALITY_ASSURANCE);
+        String actualName = EnvironmentType.QUALITY_ASSURANCE.toString();
 
         Assert.assertEquals(expectedName, actualName);
     }
@@ -56,7 +55,7 @@ public class EnvironmentTest {
     @Test
     public void returnsDevelopName(){
         String expectedName = "dev";
-        String actualName = Environment.name(EnvironmentType.DEVELOP);
+        String actualName = EnvironmentType.DEVELOP.toString();
 
         Assert.assertEquals(expectedName, actualName);
     }
@@ -64,7 +63,7 @@ public class EnvironmentTest {
     @Test
     public void returnsDailyAssuranceName(){
         String expectedName = "da";
-        String actualName = Environment.name(EnvironmentType.DAILY_ASSURANCE);
+        String actualName = EnvironmentType.DAILY_ASSURANCE.toString();
 
         Assert.assertEquals(expectedName, actualName);
     }
@@ -72,7 +71,7 @@ public class EnvironmentTest {
     @Test
     public void returnsRegressionName(){
         String expectedName = "reg";
-        String actualName = Environment.name(EnvironmentType.REGRESSION);
+        String actualName = EnvironmentType.REGRESSION.toString();
 
         Assert.assertEquals(expectedName, actualName);
     }
@@ -80,7 +79,7 @@ public class EnvironmentTest {
     @Test
     public void returnsProductionName(){
         String expectedName = "prod";
-        String actualName = Environment.name(EnvironmentType.PRODUCTION);
+        String actualName = EnvironmentType.PRODUCTION.toString();
 
         Assert.assertEquals(expectedName, actualName);
     }
