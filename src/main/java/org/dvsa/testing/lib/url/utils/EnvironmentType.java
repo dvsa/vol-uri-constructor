@@ -1,15 +1,28 @@
-package org.dvsa.testing.lib.uri;
+package org.dvsa.testing.lib.url.utils;
 
 import activesupport.system.out.Output;
-import org.dvsa.testing.lib.uri.utils.ApplicationType;
-import org.dvsa.testing.lib.uri.utils.EnvironmentType;
+import org.dvsa.testing.lib.url.webapp.utils.ApplicationType;
 import org.jetbrains.annotations.NotNull;
 
-public class Environment {
+public enum EnvironmentType {
 
-    public static EnvironmentType enumType(@NotNull String env){
-        EnvironmentType envEnum = null;
-        switch(env){
+    QUALITY_ASSURANCE("qa"),
+    DAILY_ASSURANCE("da"),
+    DEVELOP("dev"),
+    REGRESSION("reg"),
+    INTEGRATION("int"),
+    PRODUCTION("prod");
+
+    private String name;
+
+    EnvironmentType(@NotNull String name) {
+        this.name = name;
+    }
+
+    public static EnvironmentType getEnum(@NotNull String env){
+        EnvironmentType envEnum;
+
+        switch(env.toLowerCase()){
             case "qa":
                 envEnum = EnvironmentType.QUALITY_ASSURANCE;
                 break;
@@ -34,12 +47,9 @@ public class Environment {
         return envEnum;
     }
 
-    public static String name(@NotNull EnvironmentType env){
-        return name(ApplicationType.INTERNAL, env);
-    }
-
     public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env){
         String name;
+
         switch(env){
             case QUALITY_ASSURANCE:
                 name = "qa";
@@ -66,7 +76,13 @@ public class Environment {
             default:
                 throw new IllegalArgumentException(Output.printColoredLog(String.format("unable to handle application type of %s and/or environment of type %s.", appType, env)));
         }
+
         return name;
+    }
+
+    @Override
+    public final String toString() {
+        return this.name;
     }
 
 }
