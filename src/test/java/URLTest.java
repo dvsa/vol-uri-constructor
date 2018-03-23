@@ -2,7 +2,7 @@ import org.dvsa.testing.lib.url.webapp.URL;
 import org.junit.Assert;
 import org.junit.Test;
 import org.dvsa.testing.lib.url.webapp.utils.ApplicationType;
-import org.dvsa.testing.lib.url.webapp.utils.EnvironmentType;
+import org.dvsa.testing.lib.url.utils.EnvironmentType;
 
 import java.net.MalformedURLException;
 

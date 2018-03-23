@@ -1,6 +1,7 @@
-package org.dvsa.testing.lib.url.webapp.utils;
+package org.dvsa.testing.lib.url.utils;
 
 import activesupport.system.out.Output;
+import org.dvsa.testing.lib.url.webapp.utils.ApplicationType;
 import org.jetbrains.annotations.NotNull;
 
 public enum EnvironmentType {

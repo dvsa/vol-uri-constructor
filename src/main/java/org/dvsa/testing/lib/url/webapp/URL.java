@@ -2,7 +2,7 @@ package org.dvsa.testing.lib.url.webapp;
 
 import org.dvsa.testing.lib.url.URLBase;
 import org.dvsa.testing.lib.url.webapp.utils.ApplicationType;
-import org.dvsa.testing.lib.url.webapp.utils.EnvironmentType;
+import org.dvsa.testing.lib.url.utils.EnvironmentType;
 import org.jetbrains.annotations.NotNull;
 
 import java.net.MalformedURLException;
