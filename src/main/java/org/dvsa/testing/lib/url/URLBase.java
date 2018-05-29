@@ -20,11 +20,17 @@ public class URLBase {
         return URL;
     }
 
-    protected static void setURL(String spec) throws MalformedURLException {
-        URL = new java.net.URL(spec);
+    protected static void setURL(String spec) {
+
+        try {
+            URL = new URL(spec);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            throw new org.dvsa.testing.lib.url.exceptions.MalformedURLException();
+        }
     }
 
-    public static URL updatePath(@NotNull String path) throws MalformedURLException {
+    public static URL updatePath(@NotNull String path) {
         String regex = "(?:(?<=\\.aws\\/)|(?<=\\.uk\\/))[\\w\\/]+";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(getURL().toString());
