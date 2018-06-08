@@ -6,6 +6,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class URL extends URLBase {
 
+    public static java.net.URL build(@NotNull String scheme, @NotNull String environment, @NotNull String path) {
+        return build(scheme, EnvironmentType.getEnum(environment), path);
+    }
+
     public static java.net.URL build(@NotNull String scheme, @NotNull EnvironmentType environment, @NotNull String path) {
         // TODO: find out how prod url looks and incorporate findings
         setURL(String.format("%s://api.olcs.%s.nonprod.dvsa.aws/api/%s", scheme, environment, path));
@@ -13,8 +17,16 @@ public class URL extends URLBase {
         return getURL();
     }
 
+    public static java.net.URL build(@NotNull String environment, @NotNull String path) {
+        return build(EnvironmentType.getEnum(environment), path);
+    }
+
     public static java.net.URL build(@NotNull EnvironmentType environment, @NotNull String path) {
         return build("http", environment, path);
+    }
+
+    public static java.net.URL build(@NotNull String environment) {
+        return build(EnvironmentType.getEnum(environment));
     }
 
     public static java.net.URL build(@NotNull EnvironmentType environment) {
