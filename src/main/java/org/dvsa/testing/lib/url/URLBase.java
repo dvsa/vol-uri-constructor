@@ -21,7 +21,7 @@ public class URLBase {
     }
 
     protected static void setURL(String spec) {
-
+        spec = addResourceDelimiterIfMissing(spec);
         try {
             URL = new URL(spec);
         } catch (MalformedURLException e) {
@@ -31,13 +31,15 @@ public class URLBase {
     }
 
     public static URL updatePath(@NotNull String path) {
-        String regex = "(?:(?<=\\.aws\\/)|(?<=\\.uk\\/))[\\w\\/]+";
+        String regex = "(?:(?<=\\.aws\\/)|(?<=\\.uk\\/))[\\w\\/-]+";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(getURL().toString());
         String URLSpec;
 
+        String partialPath = isAPIUrl(getURL()) ? "api/" : "";
+
         if(matcher.find()){
-            URLSpec = getURL().toString().replaceAll(regex, path);
+            URLSpec = getURL().toString().replaceAll(regex, partialPath + path);
         } else {
             URLSpec = getURL() + (getURL().toString().endsWith("/") ? path : "/" + path);
         }
@@ -47,6 +49,17 @@ public class URLBase {
         setURL(URLSpec);
 
         return URL;
+    }
+
+    private static String addResourceDelimiterIfMissing(@NotNull String URLSpec) {
+        return URLSpec.endsWith("/") ? URLSpec : URLSpec + "/";
+    }
+
+    private static boolean isAPIUrl(URL URL){
+        String regex = "(?:(?<=\\.aws\\/)|(?<=\\.uk\\/))api\\/?";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(URL.toString());
+        return matcher.find();
     }
 
 }
