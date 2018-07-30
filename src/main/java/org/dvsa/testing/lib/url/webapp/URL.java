@@ -9,15 +9,15 @@ import java.net.MalformedURLException;
 
 public class URL extends URLBase {
 
-    public static java.net.URL build(@NotNull ApplicationType appType, @NotNull String env, @NotNull String endPoint) throws MalformedURLException {
+    public static java.net.URL build(@NotNull ApplicationType appType, @NotNull String env, @NotNull String endPoint) {
         return build(appType, EnvironmentType.getEnum(env), endPoint);
     }
 
-    public static java.net.URL build(@NotNull ApplicationType appType, @NotNull String env) throws MalformedURLException {
+    public static java.net.URL build(@NotNull ApplicationType appType, @NotNull String env) {
         return build(appType, EnvironmentType.getEnum(env));
     }
 
-    public static java.net.URL build(ApplicationType appType, EnvironmentType env, String endPoint) throws MalformedURLException {
+    public static java.net.URL build(ApplicationType appType, EnvironmentType env, String endPoint) {
         String domain;
         if (appType == ApplicationType.EXTERNAL && env == EnvironmentType.PRODUCTION) {
             domain = String.format("https://www.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
@@ -35,7 +35,7 @@ public class URL extends URLBase {
         return getURL();
     }
 
-    public static java.net.URL build(ApplicationType appType, EnvironmentType env) throws MalformedURLException {
+    public static java.net.URL build(ApplicationType appType, EnvironmentType env) {
         String endPoint = "";
         return org.dvsa.testing.lib.url.webapp.URL.build(appType, env, endPoint);
     }
