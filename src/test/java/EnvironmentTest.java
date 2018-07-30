@@ -84,4 +84,12 @@ public class EnvironmentTest {
         Assert.assertEquals(expectedName, actualName);
     }
 
+    @Test
+    public void returnsLocalName(){
+        String expectedName = "local";
+        String actualName = EnvironmentType.LOCAL.toString();
+
+        Assert.assertEquals(expectedName, actualName);
+    }
+
 }
