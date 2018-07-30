@@ -11,7 +11,8 @@ public enum EnvironmentType {
     DEVELOP("dev"),
     REGRESSION("reg"),
     INTEGRATION("int"),
-    PRODUCTION("prod");
+    PRODUCTION("prod"),
+    LOCAL("local");
 
     private String name;
 
@@ -19,10 +20,10 @@ public enum EnvironmentType {
         this.name = name;
     }
 
-    public static EnvironmentType getEnum(@NotNull String env){
+    public static EnvironmentType getEnum(@NotNull String env) {
         EnvironmentType envEnum;
 
-        switch(env.toLowerCase()){
+        switch (env.toLowerCase()) {
             case "qa":
                 envEnum = EnvironmentType.QUALITY_ASSURANCE;
                 break;
@@ -41,16 +42,19 @@ public enum EnvironmentType {
             case "prod":
                 envEnum = EnvironmentType.PRODUCTION;
                 break;
+            case "local":
+                envEnum = EnvironmentType.LOCAL;
+                break;
             default:
                 throw new IllegalArgumentException(Output.printColoredLog(String.format("[ERROR] %s does not match up to any environment")));
         }
         return envEnum;
     }
 
-    public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env){
+    public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env) {
         String name;
 
-        switch(env){
+        switch (env) {
             case QUALITY_ASSURANCE:
                 name = "qa";
                 break;
@@ -66,8 +70,11 @@ public enum EnvironmentType {
             case REGRESSION:
                 name = "reg";
                 break;
+            case LOCAL:
+                name = "local";
+                break;
             case PRODUCTION:
-                if(appType.equals(ApplicationType.INTERNAL)){
+                if (appType.equals(ApplicationType.INTERNAL)) {
                     name = "prod";
                 } else {
                     throw new IllegalArgumentException(Output.printColoredLog("[ERROR] The external(self serve) production app does not contain an environment name."));

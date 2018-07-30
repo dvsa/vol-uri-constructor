@@ -19,10 +19,14 @@ public class URL extends URLBase {
 
     public static java.net.URL build(ApplicationType appType, EnvironmentType env, String endPoint) throws MalformedURLException {
         String domain;
-        if(appType == ApplicationType.EXTERNAL && env == EnvironmentType.PRODUCTION){
+        if (appType == ApplicationType.EXTERNAL && env == EnvironmentType.PRODUCTION) {
             domain = String.format("https://www.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
+        } else if (appType == ApplicationType.EXTERNAL && env == EnvironmentType.LOCAL) {
+            domain = String.format("http://olcs-selfserve.olcs.gov.uk/auth/login/%s", endPoint);
+        } else if (appType == ApplicationType.INTERNAL && env == EnvironmentType.LOCAL) {
+            domain = String.format("http://olcs-internal.olcs.gov.uk/%s", endPoint);
         } else {
-            String nonProdSection = (env == EnvironmentType.PRODUCTION ) ? "" : ".nonprod";
+            String nonProdSection = (env == EnvironmentType.PRODUCTION) ? "" : ".nonprod";
             domain = String.format("https://%s.olcs.%s%s.dvsa.aws/%s", appName(appType), EnvironmentType.name(appType, env), nonProdSection, endPoint);
         }
 
@@ -36,7 +40,7 @@ public class URL extends URLBase {
         return org.dvsa.testing.lib.url.webapp.URL.build(appType, env, endPoint);
     }
 
-    private static String appName(ApplicationType appType){
+    private static String appName(ApplicationType appType) {
         return (appType == ApplicationType.INTERNAL) ? "iuap1" : "ssap1";
     }
 
