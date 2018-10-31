@@ -10,7 +10,7 @@ public class URLTest {
 
     @Test
     public void apiLocalDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("http://backend/");
+        java.net.URL actualDomain = new java.net.URL("http://olcs-backend/api/");
         java.net.URL expectedDomain = org.dvsa.testing.lib.url.api.URL.build(EnvironmentType.LOCAL);
 
         Assert.assertEquals(expectedDomain, actualDomain);
