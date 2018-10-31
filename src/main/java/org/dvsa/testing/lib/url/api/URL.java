@@ -10,7 +10,7 @@ public class URL extends URLBase {
     public static java.net.URL build(@NotNull String scheme, @NotNull EnvironmentType environment, @NotNull String path) {
         // TODO: find out how prod url looks and incorporate findings
         if (environment == EnvironmentType.LOCAL) {
-            setURL(String.format("%s://olcs-backend.olcs.gov.uk/api/%s",scheme, path));
+            setURL(String.format("%s://olcs-backend/api/%s",scheme, path));
         } else {
             setURL(String.format("%s://api.olcs.%s.nonprod.dvsa.aws/api/%s", scheme, environment, path));
         }
