@@ -8,6 +8,7 @@ public enum EnvironmentType {
 
     QUALITY_ASSURANCE("qa"),
     DAILY_ASSURANCE("da"),
+    DEMO("demo"),
     DEVELOP("dev"),
     REGRESSION("reg"),
     INTEGRATION("int"),
@@ -42,6 +43,9 @@ public enum EnvironmentType {
             case "prod":
                 envEnum = EnvironmentType.PRODUCTION;
                 break;
+            case "demo":
+                envEnum = EnvironmentType.DEMO;
+                break;
             case "local":
                 envEnum = EnvironmentType.LOCAL;
                 break;
@@ -69,6 +73,9 @@ public enum EnvironmentType {
                 break;
             case REGRESSION:
                 name = "reg";
+                break;
+            case DEMO:
+                name = "demo";
                 break;
             case LOCAL:
                 name = "local";
