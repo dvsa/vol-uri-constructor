@@ -6,18 +6,14 @@ import org.jetbrains.annotations.NotNull;
 
 public class URL extends URLBase {
 
-    public static java.net.URL build(@NotNull String scheme, @NotNull EnvironmentType environment, @NotNull String path) {
+    public static java.net.URL build(@NotNull String scheme, @NotNull String path) {
 
-        setURL(String.format("%s://mockapi.olcs.%s.nonprod.dvsa.aws/%s", scheme, environment, path));
+        setURL(String.format("%s://mockapi-ps.dev-dvsacloud.uk/1.0/%s", scheme, path));
         return getURL();
     }
 
-    public static java.net.URL build(@NotNull EnvironmentType environment, @NotNull String path) {
-        return build("https", environment, path);
-    }
-
-    public static java.net.URL build(@NotNull EnvironmentType environment) {
-        return build(environment, "");
+    public static java.net.URL build( @NotNull String path) {
+        return build("https", path);
     }
 
 }
