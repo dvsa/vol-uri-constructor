@@ -1,7 +1,6 @@
 package org.dvsa.testing.lib.url.mockapi;
 
 import org.dvsa.testing.lib.url.URLBase;
-import org.dvsa.testing.lib.url.utils.EnvironmentType;
 import org.jetbrains.annotations.NotNull;
 
 public class URL extends URLBase {
