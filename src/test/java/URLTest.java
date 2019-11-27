@@ -25,6 +25,22 @@ public class URLTest {
     }
 
     @Test
+    public void createInternalProdSupDomain() throws MalformedURLException {
+        java.net.URL actualDomain = new java.net.URL("https://iuap1.olcs.prodsupp.nonprod.dvsa.aws/");
+        java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.PROD_SUPP);
+
+        Assert.assertEquals(expectedDomain, actualDomain);
+    }
+
+    @Test
+    public void createIExternalProdSupDomain() throws MalformedURLException {
+        java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.prodsupp.nonprod.dvsa.aws/");
+        java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.PROD_SUPP);
+
+        Assert.assertEquals(expectedDomain, actualDomain);
+    }
+
+    @Test
     public void createExternalDailyAssuranceDomain() throws MalformedURLException {
         java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.da.nonprod.dvsa.aws/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.DAILY_ASSURANCE);

@@ -6,24 +6,23 @@
 
     <groupId>org.dvsa.testing.lib</groupId>
     <artifactId>uri-constructor</artifactId>
-    <version>1.4.7</version>
+    <version>1.4.8.1</version>
 
     <properties>
         <junit.version>4.12</junit.version>
-        <active-support.version>0.8.2</active-support.version>
+        <nexus.releases>http://nexus.shd.ci.nonprod.dvsa.aws/repository/maven-releases</nexus.releases>
+        <nexus.snapshots>http://nexus.shd.ci.nonprod.dvsa.aws/repository/maven-snapshots</nexus.snapshots>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>devappci-shd-pri-qarepo</id>
-            <url>s3://devappci-shd-pri-qarepo</url>
-        </repository>
-    </repositories>
-
+    <!--  Nexus Configuration  -->
     <distributionManagement>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>${nexus.snapshots}</url>
+        </snapshotRepository>
         <repository>
-            <id>devappci-shd-pri-qarepo</id>
-            <url>s3://devappci-shd-pri-qarepo</url>
+            <id>maven-releases</id>
+            <url>${nexus.releases}</url>
         </repository>
     </distributionManagement>
 
@@ -48,12 +47,6 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>org.dvsa.testing.lib</groupId>
-            <artifactId>active-support</artifactId>
-            <version>${active-support.version}</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
