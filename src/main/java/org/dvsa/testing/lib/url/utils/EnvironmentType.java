@@ -1,12 +1,12 @@
 package org.dvsa.testing.lib.url.utils;
 
-import activesupport.system.out.Output;
 import org.dvsa.testing.lib.url.webapp.utils.ApplicationType;
 import org.jetbrains.annotations.NotNull;
 
 public enum EnvironmentType {
 
     QUALITY_ASSURANCE("qa"),
+    PROD_SUPP("prodsupp"),
     DAILY_ASSURANCE("da"),
     DEMO("demo"),
     DEVELOP("dev"),
@@ -43,6 +43,9 @@ public enum EnvironmentType {
             case "prod":
                 envEnum = EnvironmentType.PRODUCTION;
                 break;
+            case "prodsupp":
+                envEnum = EnvironmentType.PROD_SUPP;
+                break;
             case "demo":
                 envEnum = EnvironmentType.DEMO;
                 break;
@@ -50,7 +53,7 @@ public enum EnvironmentType {
                 envEnum = EnvironmentType.LOCAL;
                 break;
             default:
-                throw new IllegalArgumentException(Output.printColoredLog(String.format("[ERROR] %s does not match up to any environment")));
+                throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment"));
         }
         return envEnum;
     }
@@ -74,6 +77,9 @@ public enum EnvironmentType {
             case REGRESSION:
                 name = "reg";
                 break;
+            case PROD_SUPP:
+                name = "prodsupp";
+                break;
             case DEMO:
                 name = "demo";
                 break;
@@ -84,11 +90,11 @@ public enum EnvironmentType {
                 if (appType.equals(ApplicationType.INTERNAL)) {
                     name = "prod";
                 } else {
-                    throw new IllegalArgumentException(Output.printColoredLog("[ERROR] The external(self serve) production app does not contain an environment name."));
+                    throw new IllegalArgumentException("[ERROR] The external(self serve) production app does not contain an environment name.");
                 }
                 break;
             default:
-                throw new IllegalArgumentException(Output.printColoredLog(String.format("unable to handle application type of %s and/or environment of type %s.", appType, env)));
+                throw new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s.", appType, env));
         }
 
         return name;
