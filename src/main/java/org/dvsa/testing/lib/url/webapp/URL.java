@@ -26,8 +26,13 @@ public class URL extends URLBase {
         } else if (appType == ApplicationType.INTERNAL && env == EnvironmentType.LOCAL) {
             domain = String.format("http://olcs-internal.olcs.gov.uk/%s", endPoint);
         } else {
-            String nonProdSection = (env == EnvironmentType.PRODUCTION) ? "" : ".nonprod";
-            domain = String.format("https://%s.olcs.%s%s.dvsa.aws/%s", appName(appType), EnvironmentType.name(appType, env), nonProdSection, endPoint);
+            if (appType == ApplicationType.EXTERNAL){
+                String nonProdSection = (env == EnvironmentType.PRODUCTION) ? "" : ".nonprod";
+                domain = String.format("https://ssap1.olcs.%s%s.dvsa.aws/%s", EnvironmentType.name(appType, env), nonProdSection, endPoint);
+            } else {
+                String nonProdSection = (env == EnvironmentType.PRODUCTION) ? "" : "dev-";
+                domain = String.format("https://iuap1.%s.olcs.%sdvsacloud.uk/%s", EnvironmentType.name(appType, env), nonProdSection, endPoint);
+            }
         }
 
         setURL(domain);
