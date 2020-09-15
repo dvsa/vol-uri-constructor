@@ -30,7 +30,7 @@ public class URL extends URLBase {
                 String prodOrNonProd = (env == EnvironmentType.INTEGRATION || env == EnvironmentType.PREPRODUCTION) ? ".prod" : ".nonprod";
                 domain = String.format("https://ssap1.olcs.%s%s.dvsa.aws/%s", EnvironmentType.name(appType, env), prodOrNonProd, endPoint);
             } else {
-                String prodOrNonProd = (env == EnvironmentType.PRODUCTION) ? "" : "dev-";
+                String prodOrNonProd = (env == EnvironmentType.INTEGRATION || env == EnvironmentType.PREPRODUCTION) ? "" : "dev-";
                 domain = String.format("https://iuap1.%s.olcs.%sdvsacloud.uk/%s", EnvironmentType.name(appType, env), prodOrNonProd, endPoint);
             }
         }
