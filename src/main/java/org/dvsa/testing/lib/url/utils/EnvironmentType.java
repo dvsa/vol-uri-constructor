@@ -41,11 +41,11 @@ public enum EnvironmentType {
             case "reg":
                 envEnum = EnvironmentType.REGRESSION;
                 break;
-            case "prod":
-                envEnum = EnvironmentType.PRODUCTION;
-                break;
             case "pre":
                 envEnum = EnvironmentType.PREPRODUCTION;
+                break;
+            case "prod":
+                envEnum = EnvironmentType.PRODUCTION;
                 break;
             case "prodsupp":
                 envEnum = EnvironmentType.PROD_SUPP;
