@@ -7,27 +7,34 @@ import org.jetbrains.annotations.NotNull;
 
 import java.net.MalformedURLException;
 
+import static org.dvsa.testing.lib.url.utils.EnvironmentType.*;
+
 public class URL extends URLBase {
 
     public static java.net.URL build(@NotNull ApplicationType appType, @NotNull String env, @NotNull String endPoint) {
-        return build(appType, EnvironmentType.getEnum(env), endPoint);
+        return build(appType, getEnum(env), endPoint);
     }
 
     public static java.net.URL build(@NotNull ApplicationType appType, @NotNull String env) {
-        return build(appType, EnvironmentType.getEnum(env));
+        return build(appType, getEnum(env));
     }
 
     public static java.net.URL build(ApplicationType appType, EnvironmentType env, String endPoint) {
         String domain;
-        if (appType == ApplicationType.EXTERNAL && env == EnvironmentType.PRODUCTION) {
+        if (appType == ApplicationType.EXTERNAL && env == PRODUCTION) {
             domain = String.format("https://www.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
-        } else if (appType == ApplicationType.EXTERNAL && env == EnvironmentType.LOCAL) {
+        } else if (appType == ApplicationType.EXTERNAL && env == LOCAL) {
             domain = String.format("http://olcs-selfserve.olcs.gov.uk/auth/login/%s", endPoint);
-        } else if (appType == ApplicationType.INTERNAL && env == EnvironmentType.LOCAL) {
+        } else if (appType == ApplicationType.INTERNAL && env == LOCAL) {
             domain = String.format("http://olcs-internal.olcs.gov.uk/%s", endPoint);
         } else {
-            String nonProdSection = (env == EnvironmentType.PRODUCTION) ? "" : ".nonprod";
-            domain = String.format("https://%s.olcs.%s%s.dvsa.aws/%s", appName(appType), EnvironmentType.name(appType, env), nonProdSection, endPoint);
+            if (appType == ApplicationType.EXTERNAL){
+                String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION) ? ".prod" : ".nonprod";
+                domain = String.format("https://ssap1.olcs.%s%s.dvsa.aws/%s", name(appType, env), prodOrNonProd, endPoint);
+            } else {
+                String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION || env == PRODUCTION) ? "" : "dev-";
+                domain = String.format("https://iuap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
+            }
         }
 
         setURL(domain);

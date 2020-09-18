@@ -12,6 +12,7 @@ public enum EnvironmentType {
     DEVELOP("dev"),
     REGRESSION("reg"),
     INTEGRATION("int"),
+    PREPRODUCTION("pre"),
     PRODUCTION("prod"),
     LOCAL("local");
 
@@ -39,6 +40,9 @@ public enum EnvironmentType {
                 break;
             case "reg":
                 envEnum = EnvironmentType.REGRESSION;
+                break;
+            case "pre":
+                envEnum = EnvironmentType.PREPRODUCTION;
                 break;
             case "prod":
                 envEnum = EnvironmentType.PRODUCTION;
@@ -79,6 +83,9 @@ public enum EnvironmentType {
                 break;
             case PROD_SUPP:
                 name = "prodsupp";
+                break;
+            case PREPRODUCTION:
+                name = "pre";
                 break;
             case DEMO:
                 name = "demo";
