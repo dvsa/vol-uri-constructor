@@ -29,8 +29,8 @@ public class URL extends URLBase {
             domain = String.format("http://olcs-internal.olcs.gov.uk/%s", endPoint);
         } else {
             if (appType == ApplicationType.EXTERNAL){
-                String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION) ? ".prod" : ".nonprod";
-                domain = String.format("https://ssap1.olcs.%s%s.dvsa.aws/%s", name(appType, env), prodOrNonProd, endPoint);
+                String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION) ? "" : "dev-";
+                domain = String.format("https://ssap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
             } else {
                 String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION || env == PRODUCTION) ? "" : "dev-";
                 domain = String.format("https://iuap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
