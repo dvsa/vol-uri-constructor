@@ -18,7 +18,7 @@ public class URLTest {
 
     @Test
     public void createExternalProdSupDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.prodsupp.nonprod.dvsa.aws/");
+        java.net.URL actualDomain = new java.net.URL("https://ssap1.prodsupp.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.PROD_SUPP);
 
         Assert.assertEquals(expectedDomain, actualDomain);
@@ -33,6 +33,14 @@ public class URLTest {
     }
 
     @Test
+    public void createExternalDailyAssuranceDomain() throws MalformedURLException {
+        java.net.URL actualDomain = new java.net.URL("https://ssap1.da.olcs.dev-dvsacloud.uk/");
+        java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.DAILY_ASSURANCE);
+
+        Assert.assertEquals(expectedDomain, actualDomain);
+    }
+
+    @Test
     public void createInternalDailyAssuranceDomain() throws MalformedURLException {
         java.net.URL actualDomain = new java.net.URL("https://iuap1.da.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.DAILY_ASSURANCE);
@@ -41,16 +49,8 @@ public class URLTest {
     }
 
     @Test
-    public void createExternalDailyAssuranceDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.da.nonprod.dvsa.aws/");
-        java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.DAILY_ASSURANCE);
-
-        Assert.assertEquals(expectedDomain, actualDomain);
-    }
-
-    @Test
     public void createExternalIntegrationDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.int.prod.dvsa.aws/");
+        java.net.URL actualDomain = new java.net.URL("https://ssap1.int.olcs.dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.INTEGRATION);
 
         Assert.assertEquals(expectedDomain, actualDomain);
@@ -66,7 +66,7 @@ public class URLTest {
 
     @Test
     public void createExternalPreProductionDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.pre.prod.dvsa.aws/");
+        java.net.URL actualDomain = new java.net.URL("https://ssap1.pre.olcs.dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.PREPRODUCTION);
 
         Assert.assertEquals(expectedDomain, actualDomain);
@@ -98,7 +98,7 @@ public class URLTest {
 
     @Test
     public void createExternalQualityAssuranceDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.qa.nonprod.dvsa.aws/");
+        java.net.URL actualDomain = new java.net.URL("https://ssap1.qa.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.QUALITY_ASSURANCE);
 
         Assert.assertEquals(expectedDomain, actualDomain);
@@ -114,7 +114,7 @@ public class URLTest {
 
     @Test
     public void createExternalDevelopDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.dev.nonprod.dvsa.aws/");
+        java.net.URL actualDomain = new java.net.URL("https://ssap1.dev.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.DEVELOP);
 
         Assert.assertEquals(expectedDomain, actualDomain);
@@ -129,14 +129,6 @@ public class URLTest {
     }
 
     @Test
-    public void createInternalLocalDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("http://olcs-internal.olcs.gov.uk/");
-        java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.LOCAL);
-
-        Assert.assertEquals(expectedDomain, actualDomain);
-    }
-
-    @Test
     public void createExternalLocalDomain() throws MalformedURLException {
         java.net.URL actualDomain = new java.net.URL("http://olcs-selfserve.olcs.gov.uk/auth/login/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.LOCAL);
@@ -145,8 +137,16 @@ public class URLTest {
     }
 
     @Test
+    public void createInternalLocalDomain() throws MalformedURLException {
+        java.net.URL actualDomain = new java.net.URL("http://olcs-internal.olcs.gov.uk/");
+        java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.LOCAL);
+
+        Assert.assertEquals(expectedDomain, actualDomain);
+    }
+
+    @Test
     public void createExternalRegressionDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssap1.olcs.reg.nonprod.dvsa.aws/");
+        java.net.URL actualDomain = new java.net.URL("https://ssap1.reg.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.REGRESSION);
 
         Assert.assertEquals(expectedDomain, actualDomain);
