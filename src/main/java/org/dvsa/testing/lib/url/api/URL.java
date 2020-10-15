@@ -11,7 +11,7 @@ public class URL extends URLBase {
         if (environment == EnvironmentType.LOCAL) {
             setURL(String.format("%s://olcs-backend/api/%s",scheme, path));
         } else {
-            setURL(String.format("%s://api.olcs.%s.nonprod.dvsa.aws/api/%s", scheme, environment, path));
+            setURL(String.format("%s://api.%s.olcs.dev-dvsacloud.uk/api/%s", scheme, environment, path));
         }
         return getURL();
     }
