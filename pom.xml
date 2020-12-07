@@ -10,8 +10,8 @@
 
     <properties>
         <junit.version>4.12</junit.version>
-        <nexus.releases>http://nexus.shd.ci.nonprod.dvsa.aws/repository/maven-releases</nexus.releases>
-        <nexus.snapshots>http://nexus.shd.ci.nonprod.dvsa.aws/repository/maven-snapshots</nexus.snapshots>
+        <nexus.releases>https://nexus.olcs.dev-dvsacloud.uk/repository/maven-releases</nexus.releases>
+        <nexus.snapshots>https://nexus.olcs.dev-dvsacloud.uk/repository/maven-snapshots</nexus.snapshots>
     </properties>
 
     <!--  Nexus Configuration  -->
