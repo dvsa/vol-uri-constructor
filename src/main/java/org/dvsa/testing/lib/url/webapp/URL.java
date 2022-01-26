@@ -30,10 +30,19 @@ public class URL extends URLBase {
         } else {
             if (appType == ApplicationType.EXTERNAL){
                 String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION) ? "" : "dev-";
-                domain = String.format("https://ssap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
+                if (env == DAILY_ASSURANCE) {
+                    domain = String.format("https://ssweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
+                }else
+                {
+                    domain = String.format("https://ssap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
+                }
             } else {
                 String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION || env == PRODUCTION) ? "" : "dev-";
-                domain = String.format("https://iuap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
+                if (env == DAILY_ASSURANCE) {
+                    domain = String.format("https://iuweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
+                } else {
+                    domain = String.format("https://iuap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
+                }
             }
         }
 
@@ -50,5 +59,4 @@ public class URL extends URLBase {
     private static String appName(ApplicationType appType) {
         return (appType == ApplicationType.INTERNAL) ? "iuap1" : "ssap1";
     }
-
 }

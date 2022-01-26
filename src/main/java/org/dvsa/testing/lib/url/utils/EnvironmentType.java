@@ -106,10 +106,8 @@ public enum EnvironmentType {
 
         return name;
     }
-
     @Override
     public final String toString() {
         return this.name;
     }
-
 }
