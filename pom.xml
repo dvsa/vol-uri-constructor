@@ -6,11 +6,12 @@
 
     <groupId>org.dvsa.testing.lib</groupId>
     <artifactId>uri-constructor</artifactId>
-    <version>1.5.7</version>
+    <version>1.5.6</version>
 
     <properties>
         <junit.version>4.13.2</junit.version>
         <nexus.releases>https://nexus.olcs.dev-dvsacloud.uk/repository/maven-releases</nexus.releases>
+        <nexus.snapshots>https://nexus.olcs.dev-dvsacloud.uk/repository/maven-snapshots</nexus.snapshots>
     </properties>
 
     <!--  Nexus Configuration  -->
