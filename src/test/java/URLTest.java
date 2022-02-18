@@ -98,7 +98,7 @@ public class URLTest {
 
     @Test
     public void createExternalQualityAssuranceDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssap1.qa.olcs.dev-dvsacloud.uk/");
+        java.net.URL actualDomain = new java.net.URL("https://ssweb.qa.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.QUALITY_ASSURANCE);
 
         Assert.assertEquals(expectedDomain, actualDomain);
@@ -106,7 +106,7 @@ public class URLTest {
 
     @Test
     public void createInternalQualityAssuranceDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://iuap1.qa.olcs.dev-dvsacloud.uk/");
+        java.net.URL actualDomain = new java.net.URL("https://iuweb.qa.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.QUALITY_ASSURANCE);
 
         Assert.assertEquals(expectedDomain, actualDomain);
