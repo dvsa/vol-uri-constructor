@@ -30,19 +30,11 @@ public class URL extends URLBase {
         } else {
             if (appType == ApplicationType.EXTERNAL){
                 String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION) ? "" : "dev-";
-                if ((env == DAILY_ASSURANCE) || (env == QUALITY_ASSURANCE)){
                     domain = String.format("https://ssweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
-                }else
-                {
-                    domain = String.format("https://ssap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
-                }
             } else {
                 String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION || env == PRODUCTION) ? "" : "dev-";
-                if ((env == DAILY_ASSURANCE) || (env == QUALITY_ASSURANCE)) {
                     domain = String.format("https://iuweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
-                } else {
-                    domain = String.format("https://iuap1.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
-                }
+
             }
         }
 
