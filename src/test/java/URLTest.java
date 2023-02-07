@@ -1,10 +1,11 @@
 import org.dvsa.testing.lib.url.webapp.URL;
-import org.junit.Assert;
-import org.junit.Test;
 import org.dvsa.testing.lib.url.webapp.utils.ApplicationType;
 import org.dvsa.testing.lib.url.utils.EnvironmentType;
+import org.junit.jupiter.api.Test;
 
 import java.net.MalformedURLException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class URLTest {
 
@@ -13,7 +14,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("http://olcs-backend/api/");
         java.net.URL expectedDomain = org.dvsa.testing.lib.url.api.URL.build(EnvironmentType.LOCAL);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -21,7 +22,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.prodsupp.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.PROD_SUPP);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -29,7 +30,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.prodsupp.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.PROD_SUPP);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -37,7 +38,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.da.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.DAILY_ASSURANCE);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -45,7 +46,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.da.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.DAILY_ASSURANCE);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -53,7 +54,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.int.olcs.dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.INTEGRATION);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -61,7 +62,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.int.olcs.dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.INTEGRATION);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -69,7 +70,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.pre.olcs.dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.PREPRODUCTION);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -77,7 +78,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.pre.olcs.dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.PREPRODUCTION);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -85,7 +86,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://www.vehicle-operator-licensing.service.gov.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.PRODUCTION);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -93,7 +94,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.prod.olcs.dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.PRODUCTION);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -101,7 +102,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.qa.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.QUALITY_ASSURANCE);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -109,7 +110,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.qa.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.QUALITY_ASSURANCE);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -117,7 +118,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.dev.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.DEVELOP);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -125,7 +126,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.dev.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.DEVELOP);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -133,7 +134,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("http://olcs-selfserve.olcs.gov.uk/auth/login/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.LOCAL);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -141,7 +142,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("http://olcs-internal.olcs.gov.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.LOCAL);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -149,7 +150,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.reg.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.REGRESSION);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -157,7 +158,7 @@ public class URLTest {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.reg.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.REGRESSION);
 
-        Assert.assertEquals(expectedDomain, actualDomain);
+        assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
@@ -167,7 +168,7 @@ public class URLTest {
         java.net.URL actualURL = new java.net.URL("https://www.vehicle-operator-licensing.service.gov.uk/auth/login/");
         java.net.URL expectedURL = URL.updatePath("auth/login/");
 
-        Assert.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 
     @Test
@@ -177,6 +178,6 @@ public class URLTest {
         java.net.URL actualURL = new java.net.URL("https://www.vehicle-operator-licensing.service.gov.uk/auth/login/");
         java.net.URL expectedURL = org.dvsa.testing.lib.url.webapp.URL.updatePath("auth/login/");
 
-        Assert.assertEquals(expectedURL, actualURL);
+        assertEquals(expectedURL, actualURL);
     }
 }

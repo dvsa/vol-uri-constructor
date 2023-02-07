@@ -23,5 +23,4 @@ public class URL extends URLBase {
     public static java.net.URL build(@NotNull EnvironmentType environment) {
         return build(environment, "");
     }
-
 }
