@@ -16,7 +16,7 @@ public enum EnvironmentType {
     PRODUCTION("prod"),
     LOCAL("local");
 
-    private String name;
+    private final String name;
 
     EnvironmentType(@NotNull String name) {
         this.name = name;
