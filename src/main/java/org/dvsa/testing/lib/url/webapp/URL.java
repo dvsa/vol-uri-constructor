@@ -24,9 +24,9 @@ public class URL extends URLBase {
         if (appType == ApplicationType.EXTERNAL && env == PRODUCTION) {
             domain = String.format("https://www.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
         } else if (appType == ApplicationType.EXTERNAL && env == LOCAL) {
-            domain = String.format("http://olcs-selfserve.olcs.gov.uk/auth/login/%s", endPoint);
+            domain = String.format("http://olcs-selfserve/", endPoint);
         } else if (appType == ApplicationType.INTERNAL && env == LOCAL) {
-            domain = String.format("http://olcs-internal.olcs.gov.uk/%s", endPoint);
+            domain = String.format("http://olcs-internal/", endPoint);
         } else {
             if (appType == ApplicationType.EXTERNAL){
                 String prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION) ? "" : "dev-";
@@ -37,7 +37,6 @@ public class URL extends URLBase {
 
             }
         }
-
         setURL(domain);
 
         return getURL();
@@ -46,9 +45,5 @@ public class URL extends URLBase {
     public static java.net.URL build(ApplicationType appType, EnvironmentType env) {
         String endPoint = "";
         return org.dvsa.testing.lib.url.webapp.URL.build(appType, env, endPoint);
-    }
-
-    private static String appName(ApplicationType appType) {
-        return (appType == ApplicationType.INTERNAL) ? "iuap1" : "ssap1";
     }
 }
