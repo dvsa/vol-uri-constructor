@@ -17,6 +17,7 @@ public class URLTest {
         assertEquals(expectedDomain, actualDomain);
     }
 
+
     @Test
     public void createExternalProdSupDomain() throws MalformedURLException {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.prodsupp.olcs.dev-dvsacloud.uk/");
@@ -131,7 +132,7 @@ public class URLTest {
 
     @Test
     public void createExternalLocalDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("http://olcs-selfserve.olcs.gov.uk/auth/login/");
+        java.net.URL actualDomain = new java.net.URL("http://olcs-selfserve/");
         java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.LOCAL);
 
         assertEquals(expectedDomain, actualDomain);
@@ -139,7 +140,7 @@ public class URLTest {
 
     @Test
     public void createInternalLocalDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("http://olcs-internal.olcs.gov.uk/");
+        java.net.URL actualDomain = new java.net.URL("http://olcs-internal/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.LOCAL);
 
         assertEquals(expectedDomain, actualDomain);
