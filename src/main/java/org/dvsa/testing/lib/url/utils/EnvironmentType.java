@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 public enum EnvironmentType {
 
     QUALITY_ASSURANCE("qa"),
-    PROD_SUPP("prodsupp"),
+    PROD_SUPP("ps"),
     DAILY_ASSURANCE("da"),
     DEMO("demo"),
     DEVELOP("dev"),
@@ -47,7 +47,7 @@ public enum EnvironmentType {
             case "prod":
                 envEnum = EnvironmentType.PRODUCTION;
                 break;
-            case "prodsupp":
+            case "ps":
                 envEnum = EnvironmentType.PROD_SUPP;
                 break;
             case "demo":
@@ -57,7 +57,7 @@ public enum EnvironmentType {
                 envEnum = EnvironmentType.LOCAL;
                 break;
             default:
-                throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment"));
+                throw new IllegalArgumentException("[ERROR] %s does not match up to any environment");
         }
         return envEnum;
     }
