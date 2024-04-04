@@ -32,6 +32,7 @@ public class URLTest {
         assertEquals(expectedDomain, actualDomain);
     }
 
+
     @Test
     public void createExternalDailyAssuranceDomain() throws MalformedURLException {
         java.net.URL actualDomain = new java.net.URL("https://ssweb.da.olcs.dev-dvsacloud.uk/");

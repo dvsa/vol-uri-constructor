@@ -19,7 +19,7 @@ public class URL extends URLBase {
     }
 
     public static java.net.URL build(@NotNull EnvironmentType environment, @NotNull String path) {
-        return build("http", EnvironmentType.valueOf(environment.name()), path);
+        return build("http", environment, path);
     }
 
     public static java.net.URL build(@NotNull EnvironmentType environment) {
