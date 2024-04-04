@@ -29,7 +29,6 @@ public class URLTest {
     public void createInternalProdSupDomain() throws MalformedURLException {
         java.net.URL actualDomain = new java.net.URL("https://iuweb.prodsupp.olcs.dev-dvsacloud.uk/");
         java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.PROD_SUPP);
-
         assertEquals(expectedDomain, actualDomain);
     }
 

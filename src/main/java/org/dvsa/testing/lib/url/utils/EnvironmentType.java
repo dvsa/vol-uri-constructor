@@ -62,7 +62,7 @@ public enum EnvironmentType {
         return envEnum;
     }
 
-    public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env) {
+    public static String name(ApplicationType appType, @NotNull EnvironmentType env) {
         String name;
 
         switch (env) {
