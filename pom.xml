@@ -12,16 +12,8 @@
         <junit.version>5.10.1</junit.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <jetbrains-annotations-version>24.1.0</jetbrains-annotations-version>
-        <nexus.releases>https://nexus.olcs.dev-dvsacloud.uk/repository/maven-releases</nexus.releases>
+        <github.url>https://maven.pkg.github.com/dvsa/vol-uri-constructor</github.url>
     </properties>
-
-    <!--  Nexus Configuration  -->
-    <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <url>${nexus.releases}</url>
-        </repository>
-    </distributionManagement>
 
     <build>
         <extensions>
@@ -59,4 +51,22 @@
             <version>${jetbrains-annotations-version}</version>
         </dependency>
     </dependencies>
+
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub dvsa Apache Maven Packages</name>
+            <url>${github.url}</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub dvsa Apache Maven Packages</name>
+            <url>${github.url}</url>
+        </repository>
+    </distributionManagement>
+
 </project>
