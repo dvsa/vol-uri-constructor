@@ -1,0 +1,42 @@
+name: Security Scan
+
+on:
+  workflow_call:
+    inputs:
+      severity-threshold:
+        description: "Severity threshold"
+        required: false
+        default: "high"
+        type: string
+    secrets:
+      SNYK_TOKEN:
+        description: "Snyk token"
+        required: true
+  schedule:
+    # Weekly on Monday at 00:00 UTC
+    - cron: 0 0 * * 1
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:      
+    scan:
+        name: scan
+        runs-on: ubuntu-latest
+        steps:
+  
+        - uses: actions/checkout@v4
+        - uses: snyk/actions/setup@master
+        - uses: actions/setup-java@v4
+          with:
+            distribution: "corretto"
+            java-version: "11"
+            cache: maven
+        - uses: whelk-io/maven-settings-xml-action@v22
+          with:
+            servers: '[{ "id":"github-vol-active-support", "configuration": { "httpHeaders": { "property": { "name":"Authorization", "value":"Bearer ${{ secrets.GITHUB_TOKEN }}"} } } } ]'
+         
+        - run: snyk test --severity-threshold=${{ inputs.severity-threshold || 'high' }} -- -P github 
+          env:
+            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

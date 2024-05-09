@@ -1,0 +1,17 @@
+name: CI
+
+on:
+    pull_request:
+ 
+jobs:
+  security:
+    name: Security
+    uses: ./.github/workflows/security.yaml
+    secrets: inherit
+   
+  build-maven:      
+    name: build with Maven
+    uses: ./.github/workflows/maven_build.yaml
+    needs: security
+
+
