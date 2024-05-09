@@ -52,15 +52,6 @@
         </dependency>
     </dependencies>
 
-
-    <repositories>
-        <repository>
-            <id>github</id>
-            <name>GitHub dvsa Apache Maven Packages</name>
-            <url>${github.url}</url>
-        </repository>
-    </repositories>
-
     <distributionManagement>
         <repository>
             <id>github</id>
