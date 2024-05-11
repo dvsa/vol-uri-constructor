@@ -11,7 +11,9 @@ jobs:
    
   build-maven:      
     name: build with Maven
-    uses: ./.github/workflows/maven_build.yaml
+    uses: ./.github/workflows/maven.yaml
+    with:
+        maven-goal: package
     needs: security
 
 

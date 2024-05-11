@@ -1,0 +1,25 @@
+name: Maven 
+
+on:
+  workflow_call:
+    inputs:
+      maven-goal:
+        description: 'Maven goal to run'
+        required: true
+        default: 'package'
+        type: string
+  
+permissions:
+  contents: read
+
+
+jobs:
+    build:
+      name: build
+      runs-on: ubuntu-latest
+      steps:
+       - uses: actions/checkout@v4
+        
+       - run: mvn -B -P github ${{ inputs.maven-goal}}
+
+    
