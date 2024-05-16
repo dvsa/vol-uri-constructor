@@ -12,7 +12,7 @@
         <junit.version>5.10.1</junit.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <jetbrains-annotations-version>24.1.0</jetbrains-annotations-version>
-        <github.url>https://maven.pkg.github.com/dvsa/vol-uri-constructor</github.url>
+        <github.url>https://maven.pkg.github.com/dvsa/*</github.url>
     </properties>
 
     <build>
@@ -54,7 +54,7 @@
 
     <distributionManagement>
         <repository>
-            <id>github</id>
+            <id>dvsa-github-packages</id>
             <name>GitHub dvsa Apache Maven Packages</name>
             <url>${github.url}</url>
         </repository>
