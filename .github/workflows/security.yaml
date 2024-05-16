@@ -35,7 +35,7 @@ jobs:
             cache: maven
         - uses: whelk-io/maven-settings-xml-action@v22
           with:
-            servers: '[{ "id":"github-vol-active-support", "configuration": { "httpHeaders": { "property": { "name":"Authorization", "value":"Bearer ${{ secrets.GITHUB_TOKEN }}"} } } } ]'
+            servers: '[{ "id":"dvsa-github-packages", "configuration": { "httpHeaders": { "property": { "name":"Authorization", "value":"Bearer ${{ secrets.GITHUB_TOKEN }}"} } } } ]'
          
         - run: snyk test --severity-threshold=${{ inputs.severity-threshold || 'high' }} -- -P github 
           env:
