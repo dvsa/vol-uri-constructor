@@ -5,14 +5,14 @@ import org.jetbrains.annotations.NotNull;
 
 public enum EnvironmentType {
 
-    QUALITY_ASSURANCE("qa"),
+    QUALITY_ASSURANCE("int"),
     PROD_SUPP("prodsupp"),
     DAILY_ASSURANCE("da"),
     DEMO("demo"),
     DEVELOP("dev"),
     REGRESSION("reg"),
     INTEGRATION("int"),
-    PREPRODUCTION("pre"),
+    PREPRODUCTION("pp"),
     PRODUCTION("prod"),
     LOCAL("local");
 
@@ -67,7 +67,7 @@ public enum EnvironmentType {
 
         switch (env) {
             case QUALITY_ASSURANCE:
-                name = "qa";
+                name = "int";
                 break;
             case DEVELOP:
                 name = "dev";
@@ -85,7 +85,7 @@ public enum EnvironmentType {
                 name = "prodsupp";
                 break;
             case PREPRODUCTION:
-                name = "pre";
+                name = "prep";
                 break;
             case DEMO:
                 name = "demo";
