@@ -1,0 +1,51 @@
+name: CD
+
+on:
+    push:
+     branches:
+       -  main
+    
+jobs:
+  release-please:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          release-type: maven
+
+  
+  publish:
+    if: ${{needs.release-please.outputs.release_created}}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    needs: 
+      - release-please
+    steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+
+        - name: Set up JDK 11
+          uses: actions/setup-java@v4
+          with:
+            java-version: '11'
+            distribution: 'corretto'
+            cache: 'maven'
+            
+        - name: Publish to GitHub Packages Apache Maven
+          uses: ./.github/workflows/maven.yaml
+          with:
+            maven-goal: deploy
+          env:
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+            
+  

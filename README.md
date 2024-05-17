@@ -13,3 +13,12 @@ org.dvsa.testing.lib.url.webapp.URL.build(ApplicationType.INTERNAL, "prod")
 ```
 
 The above code snippet will return the string "https://www.vehicle-operator-licensing.service.gov.uk/"
+
+## Installation.
+Add the following Maven dependency to your project's `pom.xml` file:
+```xml
+<dependency>
+    <groupId>org.dvsa.testing.lib</groupId>
+    <artifactId>uri-constructor</artifactId>
+    <version>LATEST</version>
+</dependency>
