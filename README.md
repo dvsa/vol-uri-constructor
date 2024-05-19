@@ -1,4 +1,4 @@
-#URL Constructor
+## URL Constructor
 
 This library handles creating environment specific URLs. It is intended to be used for test automation for initial page load.
 
@@ -19,6 +19,6 @@ Add the following Maven dependency to your project's `pom.xml` file:
 ```xml
 <dependency>
     <groupId>org.dvsa.testing.lib</groupId>
-    <artifactId>uri-constructor</artifactId>
-    <version>LATEST</version>
+    <artifactIdvol->uri-constructor</artifactId>
+    <version>[LATEST VERSION HERE]</version>
 </dependency>
