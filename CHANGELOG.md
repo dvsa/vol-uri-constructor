@@ -1,5 +1,13 @@
 # Revision History for the uri-constructor
 
+## [2.0.4](https://github.com/dvsa/vol-uri-constructor/compare/v2.0.3...v2.0.4) (2024-05-19)
+
+
+### Miscellaneous Chores
+
+* release 2.0.4 ([9664a4f](https://github.com/dvsa/vol-uri-constructor/commit/9664a4fd311016adef968dec415fb0b880a7936e))
+* release 2.0.6 ([c00001b](https://github.com/dvsa/vol-uri-constructor/commit/c00001b784f93e8e76efa39992b86e00d4f7435f))
+
 ## [2.0.3](https://github.com/dvsa/vol-uri-constructor/compare/2.0.2...v2.0.3) (2024-05-17)
 
 
