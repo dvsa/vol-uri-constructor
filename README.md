@@ -19,6 +19,6 @@ Add the following Maven dependency to your project's `pom.xml` file:
 ```xml
 <dependency>
     <groupId>org.dvsa.testing.lib</groupId>
-    <artifactId>vol->uri-constructor</artifactId>
+    <artifactId>vol-uri-constructor</artifactId>
     <version>[LATEST VERSION HERE]</version>
 </dependency>
