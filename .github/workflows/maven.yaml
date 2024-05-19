@@ -11,7 +11,7 @@ on:
   
 permissions:
   contents: read
-
+  packages: write
 
 jobs:
     build:
@@ -19,7 +19,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
        - uses: actions/checkout@v4
-        
+       - uses: whelk-io/maven-settings-xml-action@v22
+         with:
+          servers: '[{ "id":"github-publish", "configuration": { "httpHeaders": { "property": { "name":"Authorization", "value":"Bearer ${{ secrets.GITHUB_TOKEN }}"} } } } ]'
+      
        - run: mvn -B -P github ${{ inputs.maven-goal}}
-
     

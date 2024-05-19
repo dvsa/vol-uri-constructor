@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.dvsa.testing.lib</groupId>
-    <artifactId>uri-constructor</artifactId>
+    <artifactId>vol-uri-constructor</artifactId>
     <version>2.0.3</version>
 
     <properties>
@@ -12,6 +12,30 @@
         <jetbrains-annotations-version>24.1.0</jetbrains-annotations-version>
         <github.url>https://maven.pkg.github.com/dvsa/vol-uri-constructor</github.url>
     </properties>
+
+    
+    <profiles>
+        <profile>
+            <id>github</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+            </repositories>
+            <distributionManagement>
+                <repository>
+                    <id>github-publish</id>
+                    <name>GitHub dvsa Apache Maven Packages</name>
+                    <url>${github.url}</url>
+                    <snapshots><enabled>true</enabled></snapshots>
+                    <releases><enabled>true</enabled></releases>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 
     <build>
         <extensions>
@@ -49,13 +73,4 @@
             <version>${jetbrains-annotations-version}</version>
         </dependency>
     </dependencies>
-
-    <distributionManagement>
-        <repository>
-            <id>dvsa-github-packages</id>
-            <name>GitHub dvsa Apache Maven Packages</name>
-            <url>${github.url}</url>
-        </repository>
-    </distributionManagement>
-
 </project>
