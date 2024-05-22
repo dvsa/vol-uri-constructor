@@ -52,17 +52,15 @@ public class URLTest {
 
     @Test
     public void createExternalIntegrationDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://ssweb.int.olcs.dvsacloud.uk/");
-        java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.INTEGRATION);
-
+        java.net.URL actualDomain = new java.net.URL("https://ssweb.qa.olcs.dev-dvsacloud.uk/");
+        java.net.URL expectedDomain = URL.build(ApplicationType.EXTERNAL, EnvironmentType.QUALITY_ASSURANCE);
         assertEquals(expectedDomain, actualDomain);
     }
 
     @Test
     public void createInternalIntegrationDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://iuweb.int.olcs.dvsacloud.uk/");
-        java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.INTEGRATION);
-
+        java.net.URL actualDomain = new java.net.URL("https://iuweb.qa.olcs.dev-dvsacloud.uk/");
+        java.net.URL expectedDomain = URL.build(ApplicationType.INTERNAL, EnvironmentType.QUALITY_ASSURANCE);
         assertEquals(expectedDomain, actualDomain);
     }
 
