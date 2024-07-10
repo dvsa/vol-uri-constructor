@@ -27,6 +27,7 @@ public enum EnvironmentType {
 
         switch (env.toLowerCase()) {
             case "qa":
+            case "int":
                 envEnum = EnvironmentType.QUALITY_ASSURANCE;
                 break;
             case "dev":
@@ -35,13 +36,11 @@ public enum EnvironmentType {
             case "da":
                 envEnum = EnvironmentType.DAILY_ASSURANCE;
                 break;
-            case "int":
-                envEnum = EnvironmentType.INTEGRATION;
-                break;
             case "reg":
                 envEnum = EnvironmentType.REGRESSION;
                 break;
             case "pre":
+            case "prep":
                 envEnum = EnvironmentType.PREPRODUCTION;
                 break;
             case "prod":
@@ -57,11 +56,10 @@ public enum EnvironmentType {
                 envEnum = EnvironmentType.LOCAL;
                 break;
             default:
-                throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment"));
+                throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment", env));
         }
         return envEnum;
     }
-
     public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env) {
         String name;
 
@@ -101,7 +99,7 @@ public enum EnvironmentType {
                 }
                 break;
             default:
-                throw new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s.", appType, env));
+                throw new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s. ", appType, env));
         }
 
         return name;

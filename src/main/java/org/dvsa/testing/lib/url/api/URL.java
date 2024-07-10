@@ -7,11 +7,14 @@ import org.jetbrains.annotations.NotNull;
 public class URL extends URLBase {
 
     public static java.net.URL build(@NotNull String scheme, @NotNull EnvironmentType environment, @NotNull String path) {
-        // TODO: find out how prod url looks and incorporate findings
         if (environment == EnvironmentType.LOCAL) {
-            setURL(String.format("%s://olcs-backend/api/%s",scheme, path));
+            setURL(String.format("%s://olcs-backend/api/%s", scheme, path));
         } else {
-            setURL(String.format("%s://api.%s.olcs.dev-dvsacloud.uk/api/%s", scheme, environment, path));
+            String baseUrl = String.format("%s://api.%s.olcs.dev-dvsacloud.uk/api/%s", scheme, environment, path);
+            if (environment == EnvironmentType.PRODUCTION) {
+                baseUrl = baseUrl.replace(".dev-", ".");
+            }
+            setURL(baseUrl);
         }
         return getURL();
     }
