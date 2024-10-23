@@ -12,7 +12,7 @@ public enum EnvironmentType {
     DEVELOP("dev"),
     REGRESSION("reg"),
     INTEGRATION("int"),
-    PREPRODUCTION("pre"),
+    PREPRODUCTION("prep"),
     PRODUCTION("prod"),
     LOCAL("local");
 
@@ -24,10 +24,8 @@ public enum EnvironmentType {
 
     public static EnvironmentType getEnum(@NotNull String env) {
         EnvironmentType envEnum;
-
         switch (env.toLowerCase()) {
             case "qa":
-            case "int":
                 envEnum = EnvironmentType.QUALITY_ASSURANCE;
                 break;
             case "dev":
@@ -36,10 +34,12 @@ public enum EnvironmentType {
             case "da":
                 envEnum = EnvironmentType.DAILY_ASSURANCE;
                 break;
+            case "int":
+                envEnum = EnvironmentType.INTEGRATION;
+                break;
             case "reg":
                 envEnum = EnvironmentType.REGRESSION;
                 break;
-            case "pre":
             case "prep":
                 envEnum = EnvironmentType.PREPRODUCTION;
                 break;
@@ -60,9 +60,9 @@ public enum EnvironmentType {
         }
         return envEnum;
     }
+
     public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env) {
         String name;
-
         switch (env) {
             case QUALITY_ASSURANCE:
                 name = "qa";
@@ -83,7 +83,7 @@ public enum EnvironmentType {
                 name = "prodsupp";
                 break;
             case PREPRODUCTION:
-                name = "pre";
+                name = "prep";
                 break;
             case DEMO:
                 name = "demo";
@@ -104,6 +104,7 @@ public enum EnvironmentType {
 
         return name;
     }
+
     @Override
     public final String toString() {
         return this.name;
