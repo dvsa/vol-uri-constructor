@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.dvsa.testing.lib</groupId>
     <artifactId>vol-uri-constructor</artifactId>
-    <version>2.0.5-SNAPSHOT</version>
+    <version>2.0.6-SNAPSHOT</version>
 
     <properties>
         <junit.version>5.10.1</junit.version>
@@ -13,38 +12,29 @@
         <github.url>https://maven.pkg.github.com/dvsa/vol-uri-constructor</github.url>
     </properties>
 
-    
-    <profiles>
-        <profile>
+    <distributionManagement>
+        <repository>
             <id>github</id>
-            <repositories>
-                <repository>
-                    <id>central</id>
-                    <url>https://repo1.maven.org/maven2</url>
-                    <releases><enabled>true</enabled></releases>
-                    <snapshots><enabled>true</enabled></snapshots>
-                </repository>
-            </repositories>
-            <distributionManagement>
-                <repository>
-                    <id>github-publish</id>
-                    <name>GitHub dvsa Apache Maven Packages</name>
-                    <url>${github.url}</url>
-                    <snapshots><enabled>true</enabled></snapshots>
-                    <releases><enabled>true</enabled></releases>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
+            <name>GitHub DVSA Apache Maven Packages</name>
+            <url>${github.url}</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+            <id>github</id>
+            <url>${github.url}</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <build>
-        <extensions>
-            <extension>
-                <groupId>org.springframework.build</groupId>
-                <artifactId>aws-maven</artifactId>
-                <version>5.0.0.RELEASE</version>
-            </extension>
-        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -58,15 +48,12 @@
     </build>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
