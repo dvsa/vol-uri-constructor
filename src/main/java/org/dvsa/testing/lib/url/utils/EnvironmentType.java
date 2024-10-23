@@ -12,7 +12,7 @@ public enum EnvironmentType {
     DEVELOP("dev"),
     REGRESSION("reg"),
     INTEGRATION("int"),
-    PREPRODUCTION("pre"),
+    PREPRODUCTION("prep"),
     PRODUCTION("prod"),
     LOCAL("local");
 
@@ -24,7 +24,6 @@ public enum EnvironmentType {
 
     public static EnvironmentType getEnum(@NotNull String env) {
         EnvironmentType envEnum;
-
         switch (env.toLowerCase()) {
             case "qa":
                 envEnum = EnvironmentType.QUALITY_ASSURANCE;
@@ -41,7 +40,7 @@ public enum EnvironmentType {
             case "reg":
                 envEnum = EnvironmentType.REGRESSION;
                 break;
-            case "pre":
+            case "prep":
                 envEnum = EnvironmentType.PREPRODUCTION;
                 break;
             case "prod":
@@ -57,14 +56,13 @@ public enum EnvironmentType {
                 envEnum = EnvironmentType.LOCAL;
                 break;
             default:
-                throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment"));
+                throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment", env));
         }
         return envEnum;
     }
 
     public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env) {
         String name;
-
         switch (env) {
             case QUALITY_ASSURANCE:
                 name = "qa";
@@ -85,7 +83,7 @@ public enum EnvironmentType {
                 name = "prodsupp";
                 break;
             case PREPRODUCTION:
-                name = "pre";
+                name = "prep";
                 break;
             case DEMO:
                 name = "demo";
@@ -101,11 +99,12 @@ public enum EnvironmentType {
                 }
                 break;
             default:
-                throw new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s.", appType, env));
+                throw new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s. ", appType, env));
         }
 
         return name;
     }
+
     @Override
     public final String toString() {
         return this.name;
