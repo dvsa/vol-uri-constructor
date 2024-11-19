@@ -35,7 +35,7 @@ public enum EnvironmentType {
                 envEnum = EnvironmentType.DAILY_ASSURANCE;
                 break;
             case "int":
-                envEnum = EnvironmentType.INTEGRATION;
+                envEnum = EnvironmentType.QUALITY_ASSURANCE;
                 break;
             case "reg":
                 envEnum = EnvironmentType.REGRESSION;
