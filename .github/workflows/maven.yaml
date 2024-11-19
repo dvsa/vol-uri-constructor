@@ -1,4 +1,4 @@
-name: Maven 
+name: Maven
 
 on:
   workflow_call:
@@ -8,20 +8,19 @@ on:
         required: true
         default: 'package'
         type: string
-  
+
 permissions:
   contents: read
   packages: write
 
 jobs:
-    build:
-      name: build
-      runs-on: ubuntu-latest
-      steps:
-       - uses: actions/checkout@v4
-       - uses: whelk-io/maven-settings-xml-action@v22
-         with:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: whelk-io/maven-settings-xml-action@v22
+        with:
           servers: '[{ "id":"github-publish", "configuration": { "httpHeaders": { "property": { "name":"Authorization", "value":"Bearer ${{ secrets.GITHUB_TOKEN }}"} } } } ]'
-      
-       - run: mvn -B -P github ${{ inputs.maven-goal}}
-    
+
+      - run: mvn -B ${{ inputs.maven-goal }}
