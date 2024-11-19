@@ -7,6 +7,13 @@
 
 * bump to 2.0.6 ([5d64a27](https://github.com/dvsa/vol-uri-constructor/commit/5d64a279f5d03ac44df319241c60045f61409fb2))
 
+## [2.0.6](https://github.com/dvsa/vol-uri-constructor/compare/v2.0.6...v2.0.6) (2024-11-19)
+
+
+### Miscellaneous Chores
+
+* bump to 2.0.6 ([5d64a27](https://github.com/dvsa/vol-uri-constructor/commit/5d64a279f5d03ac44df319241c60045f61409fb2))
+
 ## [2.0.6](https://github.com/dvsa/vol-uri-constructor/compare/v2.0.5...v2.0.6) (2024-11-19)
 
 
