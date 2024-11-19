@@ -21,6 +21,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: whelk-io/maven-settings-xml-action@v22
         with:
-          servers: '[{ "id":"github-publish", "configuration": { "httpHeaders": { "property": { "name":"Authorization", "value":"Bearer ${{ secrets.GITHUB_TOKEN }}"} } } } ]'
+          servers: '[{ "id":"github", "configuration": { "httpHeaders": { "property": { "name":"Authorization", "value":"Bearer ${{ secrets.GITHUB_TOKEN }}"} } } } ]'
 
       - run: mvn -B ${{ inputs.maven-goal }}
