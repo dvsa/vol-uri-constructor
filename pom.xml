@@ -14,9 +14,11 @@
 
     <distributionManagement>
         <repository>
-            <id>github</id>
-            <name>GitHub DVSA Apache Maven Packages</name>
+            <id>github-publish</id>
+            <name>GitHub dvsa Apache Maven Packages</name>
             <url>${github.url}</url>
+            <snapshots><enabled>true</enabled></snapshots>
+            <releases><enabled>true</enabled></releases>
         </repository>
     </distributionManagement>
 
