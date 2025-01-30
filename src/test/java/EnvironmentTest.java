@@ -79,7 +79,7 @@ public class EnvironmentTest {
 
     @Test
     public void returnsPreProductionName(){
-        String expectedName = "pre";
+        String expectedName = "prep";
         String actualName = EnvironmentType.PREPRODUCTION.toString();
 
         assertEquals(expectedName, actualName);
