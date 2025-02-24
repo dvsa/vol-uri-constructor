@@ -23,86 +23,41 @@ public enum EnvironmentType {
     }
 
     public static EnvironmentType getEnum(@NotNull String env) {
-        EnvironmentType envEnum;
-        switch (env.toLowerCase()) {
-            case "qa":
-                envEnum = EnvironmentType.QUALITY_ASSURANCE;
-                break;
-            case "dev":
-                envEnum = EnvironmentType.DEVELOP;
-                break;
-            case "da":
-                envEnum = EnvironmentType.DAILY_ASSURANCE;
-                break;
-            case "int":
-                envEnum = EnvironmentType.INTEGRATION;
-                break;
-            case "reg":
-                envEnum = EnvironmentType.REGRESSION;
-                break;
-            case "prep":
-                envEnum = EnvironmentType.PREPRODUCTION;
-                break;
-            case "prod":
-                envEnum = EnvironmentType.PRODUCTION;
-                break;
-            case "prodsupp":
-                envEnum = EnvironmentType.PROD_SUPP;
-                break;
-            case "demo":
-                envEnum = EnvironmentType.DEMO;
-                break;
-            case "local":
-                envEnum = EnvironmentType.LOCAL;
-                break;
-            default:
-                throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment", env));
-        }
-        return envEnum;
+        return switch (env.toLowerCase()) {
+            case "qa" -> EnvironmentType.QUALITY_ASSURANCE;
+            case "dev" -> EnvironmentType.DEVELOP;
+            case "da" -> EnvironmentType.DAILY_ASSURANCE;
+            case "int" -> EnvironmentType.INTEGRATION;
+            case "reg" -> EnvironmentType.REGRESSION;
+            case "prep" -> EnvironmentType.PREPRODUCTION;
+            case "prod" -> EnvironmentType.PRODUCTION;
+            case "prodsupp" -> EnvironmentType.PROD_SUPP;
+            case "demo" -> EnvironmentType.DEMO;
+            case "local" -> EnvironmentType.LOCAL;
+            default -> throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment", env));
+        };
     }
 
     public static String name(@NotNull ApplicationType appType, @NotNull EnvironmentType env) {
-        String name;
-        switch (env) {
-            case QUALITY_ASSURANCE:
-                name = "qa";
-                break;
-            case DEVELOP:
-                name = "dev";
-                break;
-            case DAILY_ASSURANCE:
-                name = "da";
-                break;
-            case INTEGRATION:
-                name = "int";
-                break;
-            case REGRESSION:
-                name = "reg";
-                break;
-            case PROD_SUPP:
-                name = "prodsupp";
-                break;
-            case PREPRODUCTION:
-                name = "prep";
-                break;
-            case DEMO:
-                name = "demo";
-                break;
-            case LOCAL:
-                name = "local";
-                break;
-            case PRODUCTION:
+        return switch (env) {
+            case QUALITY_ASSURANCE -> "qa";
+            case DEVELOP -> "dev";
+            case DAILY_ASSURANCE -> "da";
+            case INTEGRATION -> "int";
+            case REGRESSION -> "reg";
+            case PROD_SUPP -> "prodsupp";
+            case PREPRODUCTION -> "prep";
+            case DEMO -> "demo";
+            case LOCAL -> "local";
+            case PRODUCTION -> {
                 if (appType.equals(ApplicationType.INTERNAL)) {
-                    name = "prod";
+                    yield "prod";
                 } else {
                     throw new IllegalArgumentException("[ERROR] The external(self serve) production app does not contain an environment name.");
                 }
-                break;
-            default:
-                throw new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s. ", appType, env));
-        }
-
-        return name;
+            }
+            default -> throw new IllegalArgumentException(String.format("unable to handle application type of %s and/or environment of type %s. ", appType, env));
+        };
     }
 
     @Override

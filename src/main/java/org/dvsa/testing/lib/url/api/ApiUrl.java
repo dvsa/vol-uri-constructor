@@ -4,18 +4,19 @@ import org.dvsa.testing.lib.url.URLBase;
 import org.dvsa.testing.lib.url.utils.EnvironmentType;
 import org.jetbrains.annotations.NotNull;
 
-public class URL extends URLBase {
+public class ApiUrl extends URLBase {
 
     public static java.net.URL build(@NotNull String scheme, @NotNull EnvironmentType environment, @NotNull String path) {
+        var baseUrl= "";
         if (environment == EnvironmentType.LOCAL) {
-            setURL(String.format("%s://olcs-backend/api/%s", scheme, path));
+            baseUrl = String.format("%s://olcs-backend/api/%s", scheme, path);
         } else {
-            String baseUrl = String.format("%s://api.%s.olcs.dev-dvsacloud.uk/api/%s", scheme, environment, path);
+            baseUrl = String.format("%s://api.%s.olcs.dev-dvsacloud.uk/api/%s", scheme, environment, path);
             if (environment == EnvironmentType.PRODUCTION) {
                 baseUrl = baseUrl.replace(".dev-", ".");
             }
-            setURL(baseUrl);
         }
+        setURL(baseUrl);
         return getURL();
     }
 
