@@ -1,5 +1,13 @@
 # Revision History for the uri-constructor
 
+## [2.1.0](https://github.com/dvsa/vol-uri-constructor/compare/v2.0.7...v2.1.0) (2025-02-24)
+
+
+### Features
+
+* refactor for java 17 ([7fa4804](https://github.com/dvsa/vol-uri-constructor/commit/7fa48044233f529a17e96cba1c150e4f06f52370))
+* refactor URLBase ([2ecbc14](https://github.com/dvsa/vol-uri-constructor/commit/2ecbc14707663d5033670f980002975e154e701e))
+
 ## [2.0.6](https://github.com/dvsa/vol-uri-constructor/compare/v2.0.6...v2.0.6) (2025-01-30)
 
 
