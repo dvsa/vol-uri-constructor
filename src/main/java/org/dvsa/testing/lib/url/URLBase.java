@@ -10,20 +10,18 @@ import java.util.regex.Pattern;
 
 public class URLBase {
 
-    private static URL URL;
+    private static URL url;
 
     public static java.net.URL getURL() {
-        if(URL == null) {
+        if (url == null) {
             throw new UninitialisedURLException();
         }
-
-        return URL;
+        return url;
     }
 
     protected static void setURL(String spec) {
-
         try {
-            URL = new URL(spec);
+            url = new URL(spec);
         } catch (MalformedURLException e) {
             e.printStackTrace();
             throw new org.dvsa.testing.lib.url.exceptions.MalformedURLException();
@@ -31,22 +29,12 @@ public class URLBase {
     }
 
     public static URL updatePath(@NotNull String path) {
-        String regex = "(?:(?<=\\.aws\\/)|(?<=\\.uk\\/))[\\w\\/]+";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(getURL().toString());
-        String URLSpec;
-
-        if(matcher.find()){
-            URLSpec = getURL().toString().replaceAll(regex, path);
-        } else {
-            URLSpec = getURL() + (getURL().toString().endsWith("/") ? path : "/" + path);
-        }
-
-        URLSpec = URLSpec.endsWith("/") ? URLSpec : URLSpec + "/";
-
-        setURL(URLSpec);
-
-        return URL;
+        var regex = "(?:(?<=\\.aws\\/)|(?<=\\.uk\\/))[\\w\\/]+";
+        var pattern = Pattern.compile(regex);
+        var matcher = pattern.matcher(getURL().toString());
+        var urlSpec = matcher.find() ? getURL().toString().replaceAll(regex, path) : getURL() + (getURL().toString().endsWith("/") ? path : "/" + path);
+        urlSpec = urlSpec.endsWith("/") ? urlSpec : urlSpec + "/";
+        setURL(urlSpec);
+        return url;
     }
-
 }
