@@ -29,7 +29,7 @@ public enum EnvironmentType {
             case "da" -> EnvironmentType.DAILY_ASSURANCE;
             case "int" -> EnvironmentType.INTEGRATION;
             case "reg" -> EnvironmentType.REGRESSION;
-            case "prep" -> EnvironmentType.PREPRODUCTION;
+            case "prep", "pre" -> EnvironmentType.PREPRODUCTION;
             case "prod" -> EnvironmentType.PRODUCTION;
             case "prodsupp" -> EnvironmentType.PROD_SUPP;
             case "demo" -> EnvironmentType.DEMO;
