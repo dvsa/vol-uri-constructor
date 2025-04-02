@@ -1,5 +1,13 @@
 # Revision History for the uri-constructor
 
+## [2.2.0](https://github.com/dvsa/vol-uri-constructor/compare/v2.1.0...v2.2.0) (2025-04-02)
+
+
+### Features
+
+* pre as preproduction ([aa6682b](https://github.com/dvsa/vol-uri-constructor/commit/aa6682bbda2d3467acfac539ad285556ee96538c))
+* prep url int/ss ([70e20a0](https://github.com/dvsa/vol-uri-constructor/commit/70e20a0dbb17c660c25a5fe990211d89ed9f18b9))
+
 ## [2.1.0](https://github.com/dvsa/vol-uri-constructor/compare/v2.0.7...v2.1.0) (2025-02-24)
 
 
