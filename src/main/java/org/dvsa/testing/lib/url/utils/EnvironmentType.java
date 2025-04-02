@@ -29,7 +29,7 @@ public enum EnvironmentType {
             case "da" -> EnvironmentType.DAILY_ASSURANCE;
             case "int" -> EnvironmentType.INTEGRATION;
             case "reg" -> EnvironmentType.REGRESSION;
-            case "prep" -> EnvironmentType.PREPRODUCTION;
+            case "prep", "pre", "preview" -> EnvironmentType.PREPRODUCTION;
             case "prod" -> EnvironmentType.PRODUCTION;
             case "prodsupp" -> EnvironmentType.PROD_SUPP;
             case "demo" -> EnvironmentType.DEMO;
@@ -46,7 +46,7 @@ public enum EnvironmentType {
             case INTEGRATION -> "int";
             case REGRESSION -> "reg";
             case PROD_SUPP -> "prodsupp";
-            case PREPRODUCTION -> "prep";
+            case PREPRODUCTION -> appType == ApplicationType.EXTERNAL ? "preview" : "pre";
             case DEMO -> "demo";
             case LOCAL -> "local";
             case PRODUCTION -> {

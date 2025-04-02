@@ -22,15 +22,17 @@ public class webAppURL extends URLBase {
             case EXTERNAL -> switch (env) {
                 case PRODUCTION -> String.format("https://www.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
                 case LOCAL -> String.format("http://olcs-selfserve/", endPoint);
+                case PREPRODUCTION -> String.format("https://preview.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
                 default -> {
-                    var prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION) ? "" : "dev-";
+                    var prodOrNonProd = (env == INTEGRATION) ? "" : "dev-";
                     yield String.format("https://ssweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
                 }
             };
             case INTERNAL -> switch (env) {
                 case LOCAL -> String.format("http://olcs-internal/", endPoint);
+                case PREPRODUCTION -> String.format("https://pre.olcs.dvsacloud.uk/%s", endPoint);
                 default -> {
-                    var prodOrNonProd = (env == INTEGRATION || env == PREPRODUCTION || env == PRODUCTION) ? "" : "dev-";
+                    var prodOrNonProd = (env == INTEGRATION || env == PRODUCTION) ? "" : "dev-";
                     yield String.format("https://iuweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
                 }
             };
@@ -38,7 +40,6 @@ public class webAppURL extends URLBase {
         setURL(domain);
         return getURL();
     }
-
     public static java.net.URL build(ApplicationType appType, EnvironmentType env) {
         return webAppURL.build(appType, env, "");
     }
