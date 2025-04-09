@@ -17,12 +17,13 @@ public class webAppURL extends URLBase {
         return build(appType, getEnum(env));
     }
 
+
     public static java.net.URL build(ApplicationType appType, EnvironmentType env, String endPoint) {
         var domain = switch (appType) {
             case EXTERNAL -> switch (env) {
                 case PRODUCTION -> String.format("https://www.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
                 case LOCAL -> String.format("http://olcs-selfserve/", endPoint);
-                case PREPRODUCTION -> String.format("https://preview.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
+                case PREPRODUCTION -> String.format("https://www.preview.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
                 default -> {
                     var prodOrNonProd = (env == INTEGRATION) ? "" : "dev-";
                     yield String.format("https://ssweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
@@ -40,6 +41,7 @@ public class webAppURL extends URLBase {
         setURL(domain);
         return getURL();
     }
+
     public static java.net.URL build(ApplicationType appType, EnvironmentType env) {
         return webAppURL.build(appType, env, "");
     }
