@@ -1,5 +1,13 @@
 # Revision History for the uri-constructor
 
+## [2.2.2](https://github.com/dvsa/vol-uri-constructor/compare/v2.2.1...v2.2.2) (2025-04-09)
+
+
+### Bug Fixes
+
+* iuweb ([a5f4f5e](https://github.com/dvsa/vol-uri-constructor/commit/a5f4f5e27b61331b561475960945bff1743cb711))
+* iuweb ([1895957](https://github.com/dvsa/vol-uri-constructor/commit/189595722fc757a4194970eb8cc99b99f64aa4d1))
+
 ## [2.2.1](https://github.com/dvsa/vol-uri-constructor/compare/v2.2.0...v2.2.1) (2025-04-09)
 
 
