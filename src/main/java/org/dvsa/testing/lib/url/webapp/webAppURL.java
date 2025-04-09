@@ -31,7 +31,7 @@ public class webAppURL extends URLBase {
             };
             case INTERNAL -> switch (env) {
                 case LOCAL -> String.format("http://olcs-internal/", endPoint);
-                case PREPRODUCTION -> String.format("https://pre.olcs.dvsacloud.uk/%s", endPoint);
+                case PREPRODUCTION -> String.format("https://iuweb.pre.olcs.dvsacloud.uk/%s", endPoint);
                 default -> {
                     var prodOrNonProd = (env == INTEGRATION || env == PRODUCTION) ? "" : "dev-";
                     yield String.format("https://iuweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
