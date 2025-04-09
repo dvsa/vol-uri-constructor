@@ -77,7 +77,7 @@ public class ApiUrlTest {
 
     @Test
     public void createInternalPreProductionDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://pre.olcs.dvsacloud.uk/");
+        java.net.URL actualDomain = new java.net.URL("https://iuweb.pre.olcs.dvsacloud.uk/");
         java.net.URL expectedDomain = webAppURL.build(ApplicationType.INTERNAL, EnvironmentType.PREPRODUCTION);
 
         assertEquals(expectedDomain, actualDomain);
