@@ -198,4 +198,36 @@ public class ApiUrlTest {
 
         assertEquals(expectedURL, actualURL);
     }
+
+    @Test
+    public void createExternalProvingPreProductionDomain() throws MalformedURLException {
+        java.net.URL actualDomain = new java.net.URL("https://www.proving.preview.vehicle-operator-licensing.service.gov.uk/");
+        java.net.URL expectedDomain = webAppURL.build(ApplicationType.EXTERNAL, EnvironmentType.PROVING, "preview");
+
+        assertEquals(expectedDomain, actualDomain);
+    }
+
+    @Test
+    public void createInternalProvingPreProductionDomain() throws MalformedURLException {
+        java.net.URL actualDomain = new java.net.URL("https://proving-pre.olcs.dvsacloud.uk/");
+        java.net.URL expectedDomain = webAppURL.build(ApplicationType.INTERNAL, EnvironmentType.PROVING, "pre");
+
+        assertEquals(expectedDomain, actualDomain);
+    }
+
+    @Test
+    public void createExternalProvingProductionDomain() throws MalformedURLException {
+        java.net.URL actualDomain = new java.net.URL("https://www.proving.vehicle-operator-licensing.service.gov.uk/");
+        java.net.URL expectedDomain = webAppURL.build(ApplicationType.EXTERNAL, EnvironmentType.PROVING, "prod");
+
+        assertEquals(expectedDomain, actualDomain);
+    }
+
+    @Test
+    public void createInternalProvingProductionDomain() throws MalformedURLException {
+        java.net.URL actualDomain = new java.net.URL("https://proving-app.olcs.dvsacloud.uk/");
+        java.net.URL expectedDomain = webAppURL.build(ApplicationType.INTERNAL, EnvironmentType.PROVING, "app");
+
+        assertEquals(expectedDomain, actualDomain);
+    }
 }
