@@ -25,7 +25,7 @@ public class webAppURL extends URLBase {
                 case LOCAL -> String.format("http://olcs-selfserve/", endPoint);
                 case PREPRODUCTION -> String.format("https://www.preview.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
                 case PROVING -> String.format("https://www.proving.%svehicle-operator-licensing.service.gov.uk/%s",
-                        env == PREPRODUCTION ? "preview." : "", endPoint);
+                        "", endPoint);
                 default -> {
                     var prodOrNonProd = (env == INTEGRATION) ? "" : "dev-";
                     yield String.format("https://ssweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
@@ -35,7 +35,7 @@ public class webAppURL extends URLBase {
                 case LOCAL -> String.format("http://olcs-internal/", endPoint);
                 case PREPRODUCTION -> String.format("https://iuweb.pre.olcs.dvsacloud.uk/%s", endPoint);
                 case PROVING -> String.format("https://proving-%s.olcs.dvsacloud.uk/%s",
-                        env == PREPRODUCTION ? "pre" : "app", endPoint);
+                        "app", endPoint);
                 default -> {
                     var prodOrNonProd = (env == INTEGRATION || env == PRODUCTION) ? "" : "dev-";
                     yield String.format("https://iuweb.%s.olcs.%sdvsacloud.uk/%s", name(appType, env), prodOrNonProd, endPoint);
