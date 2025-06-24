@@ -14,7 +14,8 @@ public enum EnvironmentType {
     INTEGRATION("int"),
     PREPRODUCTION("prep"),
     PRODUCTION("prod"),
-    LOCAL("local");
+    LOCAL("local"),
+    PROVING("proving");
 
     private final String name;
 
@@ -34,6 +35,7 @@ public enum EnvironmentType {
             case "prodsupp" -> EnvironmentType.PROD_SUPP;
             case "demo" -> EnvironmentType.DEMO;
             case "local" -> EnvironmentType.LOCAL;
+            case "proving" -> EnvironmentType.PROVING;
             default -> throw new IllegalArgumentException(String.format("[ERROR] %s does not match up to any environment", env));
         };
     }
@@ -48,6 +50,7 @@ public enum EnvironmentType {
             case PROD_SUPP -> "prodsupp";
             case PREPRODUCTION -> appType == ApplicationType.EXTERNAL ? "preview" : "pre";
             case DEMO -> "demo";
+            case PROVING -> "proving";
             case LOCAL -> "local";
             case PRODUCTION -> {
                 if (appType.equals(ApplicationType.INTERNAL)) {
