@@ -33,8 +33,8 @@ public class webAppURL extends URLBase {
             };
             case INTERNAL -> switch (env) {
                 case LOCAL -> String.format("http://olcs-internal/", endPoint);
-                case PREPRODUCTION -> String.format("https://proving-%s.olcs.dvsacloud.uk/%s", endPoint);
-//                case PROVING -> String.format("https://proving-%s.olcs.dvsacloud.uk/%s",
+                case PREPRODUCTION -> String.format("https://proving-%s.pre.olcs.dvsacloud.uk/%s", endPoint);
+//                case PROVING -> String.format("https://proving-%s.pre.olcs.dvsacloud.uk/%s",
 //                        "app", endPoint);
                 default -> {
                     var prodOrNonProd = (env == INTEGRATION || env == PRODUCTION) ? "" : "dev-";
