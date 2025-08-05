@@ -1,5 +1,12 @@
 # Revision History for the uri-constructor
 
+## [2.3.0](https://github.com/dvsa/vol-uri-constructor/compare/v2.2.3...v2.3.0) (2025-06-24)
+
+
+### Features
+
+* add proving url ([207cc4b](https://github.com/dvsa/vol-uri-constructor/commit/207cc4b09594f31b62af40e0867c92bedc2a20a4))
+
 ## [2.2.3](https://github.com/dvsa/vol-uri-constructor/compare/v2.2.2...v2.2.3) (2025-04-09)
 
 
