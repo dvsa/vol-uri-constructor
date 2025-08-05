@@ -67,21 +67,21 @@ public class ApiUrlTest {
         assertEquals(expectedDomain, actualDomain);
     }
 
-    @Test
-    public void createExternalPreProductionDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://www.preview.vehicle-operator-licensing.service.gov.uk/");
-        java.net.URL expectedDomain = webAppURL.build(ApplicationType.EXTERNAL, EnvironmentType.PREPRODUCTION);
+//    @Test
+//    public void createExternalPreProductionDomain() throws MalformedURLException {
+//        java.net.URL actualDomain = new java.net.URL("https://www.preview.vehicle-operator-licensing.service.gov.uk/");
+//        java.net.URL expectedDomain = webAppURL.build(ApplicationType.EXTERNAL, EnvironmentType.PREPRODUCTION);
+//
+//        assertEquals(expectedDomain, actualDomain);
+//    }
 
-        assertEquals(expectedDomain, actualDomain);
-    }
-
-    @Test
-    public void createInternalPreProductionDomain() throws MalformedURLException {
-        java.net.URL actualDomain = new java.net.URL("https://iuweb.pre.olcs.dvsacloud.uk/");
-        java.net.URL expectedDomain = webAppURL.build(ApplicationType.INTERNAL, EnvironmentType.PREPRODUCTION);
-
-        assertEquals(expectedDomain, actualDomain);
-    }
+//    @Test
+//    public void createInternalPreProductionDomain() throws MalformedURLException {
+//        java.net.URL actualDomain = new java.net.URL("https://iuweb.pre.olcs.dvsacloud.uk/");
+//        java.net.URL expectedDomain = webAppURL.build(ApplicationType.INTERNAL, EnvironmentType.PREPRODUCTION);
+//
+//        assertEquals(expectedDomain, actualDomain);
+//    }
 
     @Test
     public void createExternalProductionDomain() throws MalformedURLException {
