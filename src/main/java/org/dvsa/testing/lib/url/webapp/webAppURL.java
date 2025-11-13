@@ -22,7 +22,7 @@ public class webAppURL extends URLBase {
         var domain = switch (appType) {
             case EXTERNAL -> switch (env) {
                 case PRODUCTION -> String.format("https://www.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
-                case LOCAL -> String.format("http://olcs-selfserve/", endPoint);
+                case LOCAL -> String.format("http://ssweb.local.olcs.dev-dvsacloud.uk/%s", endPoint);
                 case PREPRODUCTION -> String.format("https://www.preview.vehicle-operator-licensing.service.gov.uk/%s", endPoint);
                 case PROVING -> String.format("https://www.proving.%svehicle-operator-licensing.service.gov.uk/%s",
                         "", endPoint);
@@ -32,7 +32,7 @@ public class webAppURL extends URLBase {
                 }
             };
             case INTERNAL -> switch (env) {
-                case LOCAL -> String.format("http://olcs-internal/", endPoint);
+                case LOCAL -> String.format("http://iuweb.local.olcs.dev-dvsacloud.uk/%s", endPoint);
                 case PREPRODUCTION -> String.format("https://iuweb.pre.olcs.dvsacloud.uk/%s", endPoint);
                 case PROVING -> String.format("https://proving-%s.olcs.dvsacloud.uk/%s",
                         "app", endPoint);
