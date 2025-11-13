@@ -1,5 +1,17 @@
 # Revision History for the uri-constructor
 
+## [2.4.0](https://github.com/dvsa/vol-uri-constructor/compare/v2.3.0...v2.4.0) (2025-11-13)
+
+
+### Features
+
+* local setup ([f82c60b](https://github.com/dvsa/vol-uri-constructor/commit/f82c60b3e76ac776f3fa08e45449ae1022faa4fe))
+
+
+### Bug Fixes
+
+* local setup urls ([de702d7](https://github.com/dvsa/vol-uri-constructor/commit/de702d7cb6f4dc67e95791a6593010594dd9715f))
+
 ## [2.3.0](https://github.com/dvsa/vol-uri-constructor/compare/v2.2.3...v2.3.0) (2025-06-24)
 
 
